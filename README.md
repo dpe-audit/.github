@@ -1,8 +1,5 @@
 # DPE-Audit
 
-> [!IMPORTANT]
-> Ce projet est actuellement en cours de développement.
-
 Un projet open source de fiabilisation des données des Diagnostics de Performance Energétique et des Audits énergétiques réglementaires.
 
 > [!IMPORTANT]
