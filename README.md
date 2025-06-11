@@ -13,8 +13,6 @@ Un projet open source de fiabilisation des données des Diagnostics de Performan
 
 [👉 NodeJS](https://github.com/action-21/dpe-audit-node)
 
-[👉 Schémas](https://github.com/action-21/guichet-unique-controle-renovation-schemas)
-
 ## 🚀 Quoi ?
 
 Le projet Libre Audit est structuré en deux parties :
