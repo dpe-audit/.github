@@ -1,0 +1,39 @@
+$id: https://schemas.dpe-audit.fr/production/panneau_photovoltaique
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Panneau photovoltaïque
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  orientation:
+    title: Orientation en degrés
+    type: number
+    minimum: 0
+    exclusiveMaximum: 360
+  inclinaison:
+    title: Inclinaison en degrés
+    type: number
+    minimum: 0
+    maximum: 90
+  modules:
+    title: Nombre de modules
+    type: integer
+    minimum: 1
+  surface:
+    title: Surface totale des capteurs en m²
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+required:
+  - id
+  - description
+  - orientation
+  - inclinaison
+  - modules
+  - surface

@@ -1,0 +1,11 @@
+- id: 570c8e85-524f-4279-81ad-87f2014f9205
+  generateur_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+  installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+  reseau:
+    alimentation_contigue: true
+    niveaux_desservis: 1
+    isolation: isole
+    bouclage: non_boucle
+  stockage:
+    volume: 200
+    position_volume_chauffe: true

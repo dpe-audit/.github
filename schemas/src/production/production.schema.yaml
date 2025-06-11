@@ -1,0 +1,13 @@
+$id: https://schemas.dpe-audit.fr/production
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Production renouvelable
+type: object
+unevaluatedProperties: false
+properties:
+  panneaux_photovoltaiques:
+    title: Liste des panneaux photovoltaïques
+    type: array
+    items:
+      $ref: /production/panneau_photovoltaique
+required:
+  - panneaux_photovoltaiques

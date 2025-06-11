@@ -1,0 +1,8 @@
+- id: 91ba046e-34e0-48ee-815a-b95f59f4056a
+  description: Un pont thermique
+  longueur: 10
+  kpt: 0.1
+  liaison:
+    type_liaison: plancher_bas_mur
+    mur_id: b0b1933f-8097-4b36-8532-aa1fab8726d2
+    plancher_id: 78ce5abe-e271-43f0-84de-d685ae4da9ef

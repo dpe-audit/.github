@@ -1,0 +1,213 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/mur
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Mur
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  type_structure:
+    title: Type de mur
+    type: ["string", "null"]
+    enum:
+      - pierre_moellons
+      - pierre_moellons_avec_remplissage
+      - pise_ou_beton_terre
+      - pan_bois_sans_remplissage
+      - pan_bois_avec_remplissage
+      - bois_rondin
+      - brique_pleine_simple
+      - brique_pleine_double_avec_lame_air
+      - brique_creuse
+      - bloc_beton_plein
+      - bloc_beton_creux
+      - beton_banche
+      - beton_machefer
+      - brique_terre_cuite_alveolaire
+      - sandwich_beton_isolant_beton_sans_isolation_rapportee
+      - cloison_platre
+      - ossature_bois_sans_remplissage
+      - ossature_bois_avec_remplissage_tout_venant
+      - ossature_bois_avec_remplissage_isolant
+      - null
+    default: null
+  epaisseur_structure:
+    title: Epaisseur du mur non isolé en mm
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  type_doublage:
+    title: Type de doublage
+    type: ["string", "null"]
+    enum:
+      - sans_doublage
+      - indetermine
+      - lame_air_inferieur_15mm
+      - lame_air_superieur_15mm
+      - materiaux_connu
+      - null
+    default: null
+  presence_enduit_isolant:
+    title: Présence d'un enduit isolant
+    type: ["boolean", "null"]
+    default: null
+  paroi_ancienne:
+    title: Mur constitué de matériaux anciens
+    type: ["boolean", "null"]
+    default: null
+  inertie:
+    title: État d'inertie
+    type: ["string", "null"]
+    enum: [lourde, legere, null]
+    default: null
+  annee_construction:
+    title: Année de construction
+    type: ["integer", "null"]
+    default: null
+  annee_renovation:
+    title: Année de dernière rénovation connue et justifiée
+    type: ["integer", "null"]
+    default: null
+  u0:
+    title: Coefficient de transmission thermique connu et justifié du mur non isolé en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  u:
+    title: Coefficient de transmission thermique connu et justifié en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  position:
+    $ref: "#/$defs/position"
+  isolation:
+    $ref: "#/$defs/isolation"
+required:
+  - id
+  - description
+  - type_structure
+  - epaisseur_structure
+  - type_doublage
+  - presence_enduit_isolant
+  - paroi_ancienne
+  - inertie
+  - annee_construction
+  - annee_renovation
+  - u0
+  - u
+  - position
+  - isolation
+$defs:
+  position:
+    title: Position
+    type: object
+    properties:
+      surface:
+        title: Surface totale en m²
+        type: number
+        exclusiveMinimum: 0
+      mitoyennete:
+        title: Mitoyenneté
+        type: string
+        enum:
+          - exterieur
+          - enterre
+          - vide_sanitaire
+          - terre_plein
+          - sous_sol_non_chauffe
+          - local_non_chauffe
+          - local_non_residentiel
+          - local_residentiel
+          - local_non_accessible
+      orientation:
+        title: Orientation en degré par rapport au nord
+        type: ["number", "null"]
+        minimum: 0
+        exclusiveMaximum: 360
+        default: null
+    required:
+      - surface
+      - mitoyennete
+      - orientation
+    oneOf:
+      - title: Mur donnant sur un local non chauffé
+        type: object
+        properties:
+          mitoyennete:
+            const: local_non_chauffe
+          local_non_chauffe_id:
+            title: Identifiant du local non chauffé associé au mur
+            type: string
+            format: uuid
+        required:
+          - local_non_chauffe_id
+          - mitoyennete
+      - title: Autres cas
+        type: object
+        properties:
+          mitoyennete:
+            not:
+              const: local_non_chauffe
+        required:
+          - mitoyennete
+  isolation:
+    title: Isolation
+    type: object
+    properties:
+      etat_isolation:
+        title: Etat d'isolation
+        type: ["string", "null"]
+        enum: [isole, non_isole, null]
+    required:
+      - etat_isolation
+    oneOf:
+      - title: Mur isolé
+        type: object
+        properties:
+          etat_isolation:
+            const: isole
+          type_isolation:
+            title: Type d'isolation
+            type: ["string", "null"]
+            enum:
+              - iti
+              - ite
+              - itr
+              - iti_ite
+              - itr_iti
+              - itr_ite
+              - itr_iti_ite
+              - null
+            default: null
+          annee_isolation:
+            title: Année d'isolation
+            type: ["integer", "null"]
+            default: null
+          epaisseur_isolation:
+            title: Epaisseur de l'isolation en mm
+            type: ["number", "null"]
+            exclusiveMinimum: 0
+            default: null
+          resistance_thermique_isolation:
+            title: Résistance thermique de l'isolation en m².K/W
+            type: ["number", "null"]
+            exclusiveMinimum: 0
+            default: null
+        required:
+          - etat_isolation
+          - type_isolation
+          - annee_isolation
+          - epaisseur_isolation
+          - resistance_thermique_isolation
+      - title: Mur non isolé ou dont l'isolation n'est pas connue
+        type: object
+        properties:
+          etat_isolation:
+            enum: [non_isole, null]
+        required:
+          - etat_isolation

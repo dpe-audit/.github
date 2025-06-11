@@ -1,0 +1,160 @@
+﻿type_generateur;mode_combustion;energie_generateur;annee_installation_generateur/gte;annee_installation_generateur/lte;pn/gt;pn/lte;pn_max;rpn;rpint;qp0;pveilleuse
+chaudiere;;bois_buche;;1977;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.27);0
+chaudiere;;bois_buche;;1977;70;400;70;58;59;1.8;0
+chaudiere;;bois_buche;;1977;400;;70;58;59;1.1;0
+chaudiere;;bois_buche;1978;1994;;70;;47 + 6 * logPn;48 + 6 * logPn;0.07 * Pn * (Pn ^ -0.3);0
+chaudiere;;bois_buche;1978;1994;70;400;70;58;59;1.4;0
+chaudiere;;bois_buche;1978;1994;400;;70;58;59;0.8;0
+chaudiere;;bois_buche;1995;2003;;70;;47 + 6 * logPn;48 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;1995;2003;70;400;70;58;59;1.1;0
+chaudiere;;bois_buche;1995;2003;400;;70;58;59;0.5;0
+chaudiere;;bois_buche;2004;2012;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;2004;2012;70;400;70;68;69;1.1;0
+chaudiere;;bois_buche;2004;2012;400;;70;68;69;0.5;0
+chaudiere;;bois_buche;2013;2017;;70;;67 + 6 * logPn;68 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;2013;2017;70;400;70;78;79;1.1;0
+chaudiere;;bois_buche;2013;2017;400;;70;78;79;0.5;0
+chaudiere;;bois_buche;2018;2019;;70;;80 + 2 * logPn;77 + 3 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;2018;2019;70;400;70;84;83;1.1;0
+chaudiere;;bois_buche;2018;2019;400;;70;84;83;0.5;0
+chaudiere;;bois_buche;2020;;;20;;89 + 2 * logPn;84 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;2020;;20;70;;90 + 2 * logPn;85 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_buche;2020;;70;400;70;94;89;1.1;0
+chaudiere;;bois_buche;2020;;400;;70;94;89;0.5;0
+chaudiere;;bois_granule;;1977;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.27);0
+chaudiere;;bois_granule;;1977;70;400;70;58;59;1.8;0
+chaudiere;;bois_granule;;1977;400;;70;58;59;1.1;0
+chaudiere;;bois_granule;1978;1994;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.3);0
+chaudiere;;bois_granule;1978;1994;70;400;70;58;59;1.4;0
+chaudiere;;bois_granule;1978;1994;400;;70;58;59;0.8;0
+chaudiere;;bois_granule;1995;2003;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_granule;1995;2003;70;400;70;68;69;1.1;0
+chaudiere;;bois_granule;1995;2003;400;;70;68;69;0.5;0
+chaudiere;;bois_granule;2004;2012;;70;;67 + 6 * logPn;68 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_granule;2004;2012;70;400;70;78;79;1.1;0
+chaudiere;;bois_granule;2004;2012;400;;70;78;79;0.5;0
+chaudiere;;bois_granule;2013;2019;;70;;80 + 2 * logPn;77 + 3 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_granule;2013;2019;70;400;70;84;83;1.1;0
+chaudiere;;bois_granule;2013;2019;400;;70;84;83;0.5;0
+chaudiere;;bois_granule;2020;;;20;;91 + 2 * logPn;88 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_granule;2020;;20;70;;92 + 2 * logPn;89 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_granule;2020;;70;400;70;96;93;1.1;0
+chaudiere;;bois_granule;2020;;400;;70;96;93;0.5;0
+chaudiere;;bois_plaquette;;1977;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.27);0
+chaudiere;;bois_plaquette;;1977;70;400;70;58;59;1.8;0
+chaudiere;;bois_plaquette;;1977;400;;70;58;59;1.1;0
+chaudiere;;bois_plaquette;1978;1994;;70;;47 + 6 * logPn;48 + 6 * logPn;0.07 * Pn * (Pn ^ -0.3);0
+chaudiere;;bois_plaquette;1978;1994;70;400;70;58;59;1.4;0
+chaudiere;;bois_plaquette;1978;1994;400;;70;58;59;0.8;0
+chaudiere;;bois_plaquette;1995;2003;;70;;47 + 6 * logPn;48 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;1995;2003;70;400;70;58;59;1.1;0
+chaudiere;;bois_plaquette;1995;2003;400;;70;58;59;0.5;0
+chaudiere;;bois_plaquette;2004;2012;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;2004;2012;70;400;70;68;69;1.1;0
+chaudiere;;bois_plaquette;2004;2012;400;;70;68;69;0.5;0
+chaudiere;;bois_plaquette;2013;2017;;70;;67 + 6 * logPn;68 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;2013;2017;70;400;70;78;79;1.1;0
+chaudiere;;bois_plaquette;2013;2017;400;;70;78;79;0.5;0
+chaudiere;;bois_plaquette;2018;2019;;70;;80 + 2 * logPn;77 + 3 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;2018;2019;70;400;70;84;83;1.1;0
+chaudiere;;bois_plaquette;2018;2019;400;;70;84;83;0.5;0
+chaudiere;;bois_plaquette;2020;;;20;;89 + 2 * logPn;84 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;2020;;20;70;;90 + 2 * logPn;85 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;bois_plaquette;2020;;70;400;70;94;89;1.1;0
+chaudiere;;bois_plaquette;2020;;400;;70;94;89;0.5;0
+chaudiere;basse_temperature;fioul;;2015;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;0.01 * Pn;0
+chaudiere;basse_temperature;fioul;2016;;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+chaudiere;basse_temperature;gaz_naturel;;2000;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;0.012 * Pn;120
+chaudiere;basse_temperature;gaz_naturel;2001;2015;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;0.01 * Pn;0
+chaudiere;basse_temperature;gaz_naturel;2016;;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+chaudiere;basse_temperature;gpl;;2000;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;0.012 * Pn;120
+chaudiere;basse_temperature;gpl;2001;2015;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;0.01 * Pn;0
+chaudiere;basse_temperature;gpl;2016;;;;;87.5 + 1.5 * logPn;87.5 + 1.5 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+chaudiere;condensation;fioul;;2015;;;;91 + logPn;97 + logPn;0.01 * Pn;0
+chaudiere;condensation;fioul;2016;;;70;;91 + 3 * logPn;103 + 2.5 * logPn;0.005 * Pn;0
+chaudiere;condensation;fioul;2016;;70;400;;94 + logPn;105 + 0.5 * logPn;0.003 * Pn;0
+chaudiere;condensation;fioul;2016;;400;;400;96.6;106.3;0.003 * Pn;0
+chaudiere;condensation;gaz_naturel;;1985;;;;91 + logPn;97 + logPn;0.01 * Pn;150
+chaudiere;condensation;gaz_naturel;1986;2000;;;;91 + logPn;97 + logPn;0.01 * Pn;120
+chaudiere;condensation;gaz_naturel;2001;2015;;;;91 + logPn;97 + logPn;0.01 * Pn;0
+chaudiere;condensation;gaz_naturel;2016;;;70;;91 + 3 * logPn;103 + 2.5 * logPn;0.005 * Pn;0
+chaudiere;condensation;gaz_naturel;2016;;70;400;;94 + logPn;105 + 0.5 * logPn;0.003 * Pn;0
+chaudiere;condensation;gaz_naturel;2016;;400;;400;96.6;106.3;0.003 * Pn;0
+chaudiere;condensation;gpl;;1985;;;;91 + logPn;97 + logPn;0.01 * Pn;150
+chaudiere;condensation;gpl;1986;2000;;;;91 + logPn;97 + logPn;0.01 * Pn;120
+chaudiere;condensation;gpl;2001;2015;;;;91 + logPn;97 + logPn;0.01 * Pn;0
+chaudiere;condensation;gpl;2016;;;70;;91 + 3 * logPn;103 + 2.5 * logPn;0.005 * Pn;0
+chaudiere;condensation;gpl;2016;;70;400;;94 + logPn;105 + 0.5 * logPn;0.003 * Pn;0
+chaudiere;condensation;gpl;2016;;400;;400;96.6;106.3;0.003 * Pn;0
+chaudiere;;charbon;;1977;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.27);0
+chaudiere;;charbon;;1977;70;400;70;58;59;1.8;0
+chaudiere;;charbon;;1977;400;;70;58;59;1.1;0
+chaudiere;;charbon;1978;1994;;70;;47 + 6 * logPn;48 + 6 * logPn;0.07 * Pn * (Pn ^ -0.3);0
+chaudiere;;charbon;1978;1994;70;400;70;58;59;1.4;0
+chaudiere;;charbon;1978;1994;400;;70;58;59;0.8;0
+chaudiere;;charbon;1995;2003;;70;;47 + 6 * logPn;48 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;1995;2003;70;400;70;58;59;1.1;0
+chaudiere;;charbon;1995;2003;400;;70;58;59;0.5;0
+chaudiere;;charbon;2004;2012;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;2004;2012;70;400;70;68;69;1.1;0
+chaudiere;;charbon;2004;2012;400;;70;68;69;0.5;0
+chaudiere;;charbon;2013;2017;;70;;67 + 6 * logPn;68 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;2013;2017;70;400;70;78;79;1.1;0
+chaudiere;;charbon;2013;2017;400;;70;78;79;0.5;0
+chaudiere;;charbon;2018;2019;;70;;80 + 2 * logPn;77 + 3 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;2018;2019;70;400;70;84;83;1.1;0
+chaudiere;;charbon;2018;2019;400;;70;84;83;0.5;0
+chaudiere;;charbon;2020;;;20;;89 + 2 * logPn;84 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;2020;;20;70;;90 + 2 * logPn;85 + 2 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+chaudiere;;charbon;2020;;70;400;70;94;89;1.1;0
+chaudiere;;charbon;2020;;400;;70;94;89;0.5;0
+chaudiere;standard;fioul;;1969;;;;84 + 2 * logPn;80 + 3 * logPn;0.04 * Pn;0
+chaudiere;standard;fioul;1970;1975;;;;84 + 2 * logPn;80 + 3 * logPn;0.03 * Pn;0
+chaudiere;standard;fioul;1976;1980;;;;84 + 2 * logPn;80 + 3 * logPn;0.02 * Pn;0
+chaudiere;standard;fioul;1981;1990;;;;84 + 2 * logPn;80 + 3 * logPn;0.01 * Pn;0
+chaudiere;standard;fioul;1991;2015;;;;84 + 2 * logPn;80 + 3 * logPn;0.01 * Pn;0
+chaudiere;standard;fioul;2016;;;;;84 + 2 * logPn;80 + 3 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+chaudiere;standard;gaz_naturel;;1980;;;;84 + 2 * logPn;80 + 3 * logPn;0.04 * Pn;240
+chaudiere;standard;gaz_naturel;1981;1985;;;;84 + 2 * logPn;80 + 3 * logPn;0.02 * Pn;150
+chaudiere;standard;gaz_naturel;1986;1990;;;;84 + 2 * logPn;80 + 3 * logPn;0.015 * Pn;150
+chaudiere;standard;gaz_naturel;1991;2000;;;;84 + 2 * logPn;80 + 3 * logPn;0.012 * Pn;120
+chaudiere;standard;gaz_naturel;2001;2015;;;;84 + 2 * logPn;80 + 3 * logPn;0.01 * Pn;0
+chaudiere;standard;gaz_naturel;2016;;;;;84 + 2 * logPn;80 + 3 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+chaudiere;standard;gpl;;1980;;;;84 + 2 * logPn;80 + 3 * logPn;0.04 * Pn;240
+chaudiere;standard;gpl;1981;1985;;;;84 + 2 * logPn;80 + 3 * logPn;0.02 * Pn;150
+chaudiere;standard;gpl;1986;1990;;;;84 + 2 * logPn;80 + 3 * logPn;0.015 * Pn;150
+chaudiere;standard;gpl;1991;2000;;;;84 + 2 * logPn;80 + 3 * logPn;0.012 * Pn;120
+chaudiere;standard;gpl;2001;2015;;;;84 + 2 * logPn;80 + 3 * logPn;0.01 * Pn;0
+chaudiere;standard;gpl;2016;;;;;84 + 2 * logPn;80 + 3 * logPn;Pn * (E + F * logPn) / 100 * Pn;0
+generateur_air_chaud;standard;;;2005;;300;;77;74;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;standard;;;2005;300;;300;77;74;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;standard;;2006;;;300;;84;77;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;standard;;2006;;300;;300;84;77;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;basse_temperature;;;2005;;300;;77;74;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;basse_temperature;;;2005;300;;300;77;74;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;basse_temperature;;2006;;;300;;84;77;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;basse_temperature;;2006;;300;;300;84;77;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;condensation;;2006;;;300;;90;83;Pn * (1.75 -0.55 * logPn) / 100;0
+generateur_air_chaud;condensation;;2006;;300;;300;90;83;Pn * (1.75 -0.55 * logPn) / 100;0
+radiateur_gaz;;;;2005;;5;;70;;;0
+radiateur_gaz;;;;2005;5;;;73;;;0
+radiateur_gaz;;;2006;;;5;;80;;;0
+radiateur_gaz;;;2006;;5;;;82;;;0
+poele_bouilleur;;bois_buche;;2011;;70;;47 + 6 * logPn;48 + 6 * logPn;0.07 * Pn * (Pn ^ -0.3);0
+poele_bouilleur;;bois_buche;;2011;70;400;70;58;59;1.4;0
+poele_bouilleur;;bois_buche;;2011;400;;70;58;59;0.8;0
+poele_bouilleur;;bois_buche;2012;;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+poele_bouilleur;;bois_buche;2012;;70;400;70;68;69;1.1;0
+poele_bouilleur;;bois_buche;2012;;400;;70;68;69;0.5;0
+poele_bouilleur;;bois_granule;;2011;;70;;47 + 6 * logPn;48 + 6 * logPn;0.08 * Pn * (Pn ^ -0.3);0
+poele_bouilleur;;bois_granule;;2011;70;400;70;58;59;1.4;0
+poele_bouilleur;;bois_granule;;2011;400;;70;58;59;0.8;0
+poele_bouilleur;;bois_granule;2012;;;70;;67 + 6 * logPn;68 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+poele_bouilleur;;bois_granule;2012;;70;400;70;78;79;1.1;0
+poele_bouilleur;;bois_granule;2012;;400;;70;78;79;0.5;0
+poele_bouilleur;;bois_plaquette;;2011;;70;;47 + 6 * logPn;48 + 6 * logPn;0.07 * Pn * (Pn ^ -0.3);0
+poele_bouilleur;;bois_plaquette;;2011;70;400;70;58;59;1.4;0
+poele_bouilleur;;bois_plaquette;;2011;400;;70;58;59;0.8;0
+poele_bouilleur;;bois_plaquette;2012;;;70;;57 + 6 * logPn;58 + 6 * logPn;0.085 * Pn * (Pn ^ -0.4);0
+poele_bouilleur;;bois_plaquette;2012;;70;400;70;68;69;1.1;0
+poele_bouilleur;;bois_plaquette;2012;;400;;70;68;69;0.5;0

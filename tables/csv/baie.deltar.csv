@@ -1,0 +1,15 @@
+﻿type_fermeture;deltar;tv_deltar_id
+jalousie_accordeon;0.08;1
+fermeture_lames_orientables;0.08;1
+venitiens_exterieurs_metal;0.08;1
+volet_battant_avec_ajours_fixes;0.08;1
+persiennes_avec_ajours_fixes;0.08;1
+fermeture_sans_ajours;0.15;2
+volets_roulants_aluminium;0.15;2
+volets_roulants_pvc_bois_epaisseur_lte_12mm;0.19;3
+persienne_coulissante_epaisseur_lte_22mm;0.19;4
+volet_battant_pvc_bois_epaisseur_lte_22mm;0.19;4
+volets_roulants_pvc_bois_epaisseur_gt_12mm;0.25;5
+persienne_coulissante_epaisseur_gt_22mm;0.25;6
+volet_battant_pvc_bois_epaisseur_gt_22mm;0.25;6
+fermeture_isolee_sans_ajours;0.25;7

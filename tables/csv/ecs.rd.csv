@@ -1,0 +1,11 @@
+﻿reseau_collectif;bouclage_reseau;alimentation_contigue;production_volume_habitable;rd;tv_rendement_distribution_ecs_id
+0;;1;1;0.93;1
+0;;0;1;0.87;2
+0;;;0;0.83;3
+1;;1;;0.28;4
+1;;0;;0.26;5
+1;non_boucle;1;;0.28;4
+1;non_boucle;0;;0.26;5
+1;boucle;1;;0.55;6
+1;boucle;0;;0.52;7
+1;trace;;;0.83;8

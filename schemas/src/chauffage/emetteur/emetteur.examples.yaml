@@ -1,0 +1,6 @@
+- id: 1e9098f0-5952-4c95-8608-291689103c29
+  description: Un émetteur de chaleur
+  type: radiateur_bitube
+  temperature_distribution: moyenne
+  presence_robinet_thermostatique: true
+  annee_installation: 2000

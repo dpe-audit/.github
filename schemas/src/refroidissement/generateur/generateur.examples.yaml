@@ -1,0 +1,6 @@
+- id: a7396354-ba21-40d9-b50f-d35da67a70c1
+  description: Un générateur de refroidissement
+  annee_installation: 2000
+  type: pac_air_air
+  energie: electricite
+  seer: null

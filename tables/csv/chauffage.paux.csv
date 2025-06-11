@@ -1,0 +1,39 @@
+﻿type_generateur;energie_generateur;generateur_multi_batiment;presence_ventouse;G;H;pn_max;paux
+chaudiere;electricite;0;;0;0;;0
+chaudiere;fioul;0;;20;1.6;400;20 + 1.6 * Pn
+chaudiere;gaz_naturel;0;;20;1.6;400;20 + 1.6 * Pn
+chaudiere;gpl;0;;20;1.6;400;20 + 1.6 * Pn
+chaudiere;bois_buche;0;1;73.3;10.5;70;73.3 + 10.5 * Pn
+chaudiere;bois_granule;0;1;73.3;10.5;70;73.3 + 10.5 * Pn
+chaudiere;bois_plaquette;0;1;73.3;10.5;70;73.3 + 10.5 * Pn
+chaudiere;charbon;0;1;73.3;10.5;70;73.3 + 10.5 * Pn
+chaudiere;charbon;0;;0;0;;0
+chaudiere;bois_buche;0;;0;0;;0
+chaudiere;bois_granule;0;;0;0;;0
+chaudiere;bois_plaquette;0;;0;0;;0
+chaudiere;;1;;0;0;;0
+generateur_air_chaud;;;;0;4;;0
+pac_air_air;;;;0;0;;0
+pac_air_eau;;;;0;0;;0
+pac_eau_eau;;;;0;0;;0
+pac_eau_glycolee_eau;;;;0;0;;0
+pac_geothermique;;;;0;0;;0
+pac_hybride_air_eau;;;;0;0;;0
+pac_hybride_eau_eau;;;;0;0;;0
+pac_hybride_eau_glycolee_eau;;;;0;0;;0
+pac_hybride_geothermique;;;;0;0;;0
+poele_bouilleur;;;1;73.3;10.5;70;73.3 + 10.5 * Pn
+poele_bouilleur;;;;0;0;70;0
+reseau_chaleur;;;;0;0;;0
+convecteur_bi_jonction;;;;0;0;;0
+convecteur_electrique;;;;0;0;;0
+panneau_rayonnant_electrique;;;;0;0;;0
+plafond_rayonnant_electrique;;;;0;0;;0
+plancher_rayonnant_electrique;;;;0;0;;0
+radiateur_electrique;;;;0;0;;0
+radiateur_electrique_accumulation;;;;0;0;;0
+cuisiniere;;;;0;0;;0
+foyer_ferme;;;;0;0;;0
+insert;;;;0;0;;0
+poele;;;;0;0;;0
+radiateur_gaz;;;;0;0;;0

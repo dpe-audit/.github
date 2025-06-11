@@ -1,0 +1,7 @@
+- id: 570c8e85-524f-4279-81ad-87f2014f9205
+  type: ventilation_mecanique
+  installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+  generateur_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+- id: e5258a6a-ef09-4895-bb13-46e1d1651153
+  type: ventilation_naturelle_ouverture_fenetres
+  installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6

@@ -1,0 +1,441 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/baie
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Baie
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  type_baie:
+    $ref: "#/$defs/typeBaie"
+  presence_protection_solaire:
+    title: Présence de protection solaire
+    type: boolean
+  type_fermeture:
+    title: Type de fermeture
+    type: string
+    enum:
+      - sans_fermeture
+      - jalousie_accordeon
+      - fermeture_lames_orientables
+      - venitiens_exterieurs_metal
+      - volet_battant_avec_ajours_fixes
+      - persiennes_avec_ajours_fixes
+      - fermeture_sans_ajours
+      - volets_roulants_aluminium
+      - volets_roulants_pvc_bois_epaisseur_lte_12_mm
+      - volets_roulants_pvc_bois_epaisseur_gt_12_mm
+      - persienne_coulissante_epaisseur_lte_22_mm
+      - persienne_coulissante_epaisseur_gt_22_mm
+      - volet_battant_pvc_bois_epaisseur_lte_22_mm
+      - volet_battant_pvc_bois_epaisseur_gt_22_mm
+      - fermeture_isolee_sans_ajours
+  annee_installation:
+    title: Année d'installation
+    type: ["integer", "null"]
+    default: null
+  ug:
+    $ref: "#/$defs/ug"
+  uw:
+    $ref: "#/$defs/uw"
+  ujn:
+    $ref: "#/$defs/ujn"
+  sw:
+    $ref: "#/$defs/sw"
+  position:
+    $ref: "#/$defs/position"
+  double_fenetre:
+    title: Double fenêtre
+    type: ["object", "null"]
+    oneOf:
+      - $ref: "#/$defs/doubleFenetre"
+      - const: null
+  masques_lointains:
+    title: Liste des masques lointains
+    type: array
+    items:
+      $ref: /enveloppe/baie/masque_lointain
+  masques_proches:
+    title: Liste des masques proches
+    type: array
+    items:
+      $ref: /enveloppe/baie/masque_proche
+required:
+  - id
+  - description
+  - type_baie
+  - presence_protection_solaire
+  - type_fermeture
+  - annee_installation
+  - ug
+  - uw
+  - ujn
+  - sw
+  - position
+  - double_fenetre
+  - masques_lointains
+  - masques_proches
+oneOf:
+  - title: Paroi vitrée
+    type: object
+    properties:
+      type_baie:
+        enum: [brique_verre_pleine, brique_verre_creuse, polycarbonate]
+    required:
+      - type_baie
+  - title: Fenêtre
+    type: object
+    properties:
+      type_baie:
+        enum: [fenetre_battante, fenetre_coulissante]
+      type_pose:
+        title: Type de pose
+        type: string
+        enum: [nu_exterieur, nu_interieur, tunnel]
+      materiau:
+        title: Matériau
+        type: ["string", "null"]
+        enum: [pvc, bois, bois_metal, metal, null]
+        default: null
+      vitrage:
+        $ref: "#/$defs/vitrage"
+      menuiserie:
+        $ref: "#/$defs/menuiserie"
+    required:
+      - type_baie
+      - type_pose
+      - materiau
+      - vitrage
+      - menuiserie
+  - title: Porte fenêtre
+    type: object
+    properties:
+      type_baie:
+        enum: [porte_fenetre_coulissante, porte_fenetre_battante]
+      type_pose:
+        title: Type de pose
+        type: string
+        enum: [nu_exterieur, nu_interieur, tunnel]
+      materiau:
+        title: Matériau
+        type: ["string", "null"]
+        enum: [pvc, bois, bois_metal, metal, null]
+        default: null
+      presence_soubassement:
+        title: Présence d'un soubassement
+        type: boolean
+      vitrage:
+        $ref: "#/$defs/vitrage"
+      menuiserie:
+        $ref: "#/$defs/menuiserie"
+    required:
+      - type
+      - type_pose
+      - materiau
+      - presence_soubassement
+      - vitrage
+      - menuiserie
+$defs:
+  typeBaie:
+    title: Type de baie
+    type: string
+    enum:
+      - brique_verre_pleine
+      - brique_verre_creuse
+      - polycarbonate
+      - fenetre_battante
+      - fenetre_coulissante
+      - porte_fenetre_coulissante
+      - porte_fenetre_battante
+  ug:
+    title: Coefficient de transmission thermique du vitrage connu et justifié en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  uw:
+    title: Coefficient de transmission thermique de la baie connu et justifié en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  ujn:
+    title: Coefficient de transmission thermique de la baie avec fermeture connu et justifié en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  sw:
+    title: Proportion d'énergie solaire transmise par la baie en %
+    type: ["number", "null"]
+    minimum: 0
+    maximum: 100
+    default: null
+  position:
+    title: Position de la baie
+    type: object
+    properties:
+      paroi_id:
+        title: Identifiant de la paroi associée à la baie
+        type: ["string", "null"]
+        format: uuid
+        default: null
+      surface:
+        title: Surface de la baie en m²
+        type: number
+        minimum: 0
+      mitoyennete:
+        title: Mitoyenneté de la baie
+        type: string
+        enum:
+          - exterieur
+          - enterre
+          - vide_sanitaire
+          - terre_plein
+          - sous_sol_non_chauffe
+          - local_non_chauffe
+          - local_non_residentiel
+          - local_residentiel
+          - local_non_accessible
+      inclinaison:
+        title: Inclinaison de la baie par rapport à l'horizontale en degré
+        type: number
+        minimum: 0
+        maximum: 90
+      orientation:
+        title: Orientation de la baie en degré par rapport au nord
+        type: [number, "null"]
+        minimum: 0
+        exclusiveMaximum: 360
+    required:
+      - paroi_id
+      - surface
+      - mitoyennete
+      - inclinaison
+      - orientation
+    allOf:
+      - oneOf:
+          - title: Baie donnant sur un local non chauffé
+            type: object
+            properties:
+              mitoyennete:
+                const: local_non_chauffe
+              local_non_chauffe_id:
+                title: Identifiant du local non chauffé associé à la baie
+                type: string
+                format: uuid
+            required:
+              - local_non_chauffe_id
+              - mitoyennete
+          - title: Autres cas
+            type: object
+            properties:
+              mitoyennete:
+                not:
+                  const: local_non_chauffe
+            required:
+              - mitoyennete
+      - oneOf:
+          - title: Baie horizontale
+            type: object
+            properties:
+              inclinaison:
+                const: 0
+              orientation:
+                const: null
+                default: null
+            required:
+              - inclinaison
+              - orientation
+          - title: Autres cas
+            type: object
+            properties:
+              inclinaison:
+                minimumExlusive: 0
+              orientation:
+                title: Orientation par rapport au nord en °
+                type: number
+                minimum: 0
+                exclusiveMaximum: 360
+            required:
+              - inclinaison
+              - orientation
+  menuiserie:
+    title: Menuiserie
+    type: object
+    properties:
+      largeur_dormant:
+        title: Largeur dormant en mm
+        type: ["number", "null"]
+        exclusiveMinimum: 0
+        default: null
+      presence_joint:
+        title: Présence de joint d'étanchéité
+        type: ["boolean", "null"]
+        default: null
+      presence_retour_isolation:
+        title: Présence d'un retour d'isolation
+        type: ["boolean", "null"]
+        default: null
+      presence_rupteur_pont_thermique:
+        title: Présence d'un rupteur de pont thermique
+        type: ["boolean", "null"]
+        default: null
+    required:
+      - largeur_dormant
+      - presence_joint
+      - presence_retour_isolation
+      - presence_rupteur_pont_thermique
+  vitrage:
+    title: Vitrage
+    type: object
+    properties:
+      type_vitrage:
+        title: Type de vitrage
+        type: ["string", "null"]
+        enum:
+          - simple_vitrage
+          - double_vitrage
+          - double_vitrage_fe
+          - triple_vitrage
+          - triple_vitrage_fe
+          - null
+        default: null
+      survitrage:
+        title: Survitrage
+        type: ["object", "null"]
+        oneOf:
+          - $ref: "#/$defs/survitrage"
+          - const: "null"
+    required:
+      - type_vitrage
+      - survitrage
+    oneOf:
+      - title: Vitrage simple
+        properties:
+          type_vitrage:
+            const: simple_vitrage
+        required:
+          - type_vitrage
+      - title: Vitrage complexe
+        properties:
+          type_vitrage:
+            not:
+              const: simple_vitrage
+          nature_gaz_lame:
+            title: Nature de la lame d'air
+            type: ["string", "null"]
+            enum:
+              - air
+              - argon
+              - krypton
+              - null
+            default: null
+          epaisseur_lame:
+            title: Epaisseur de la lame d'air en mm
+            type: ["number", "null"]
+            exclusiveMinimum: 0
+            default: null
+        required:
+          - type_vitrage
+          - nature_lame
+          - epaisseur_lame
+  survitrage:
+    title: Survitrage
+    type: object
+    properties:
+      type_survitrage:
+        title: Type de survitrage
+        type: ["string", "null"]
+        enum:
+          - survitrage_simple
+          - survitrage_fe
+          - null
+        default: null
+      epaisseur_lame:
+        title: Epaisseur de la lame d'air en mm
+        type: ["number", "null"]
+        minimum: 0
+        default: null
+    required:
+      - type_survitrage
+      - epaisseur_lame
+  doubleFenetre:
+    title: Double fenêtre
+    type: object
+    properties:
+      type_baie:
+        $ref: "#/$defs/typeBaie"
+      ug:
+        $ref: "#/$defs/ug"
+      uw:
+        $ref: "#/$defs/uw"
+      sw:
+        $ref: "#/$defs/sw"
+    required:
+      - type_baie
+      - ug
+      - uw
+      - sw
+    oneOf:
+      - title: Paroi vitrée
+        type: object
+        properties:
+          type_baie:
+            enum: [brique_verre_pleine, brique_verre_creuse, polycarbonate]
+        required:
+          - type_baie
+      - title: Fenêtre
+        type: object
+        properties:
+          type_baie:
+            enum: [fenetre_battante, fenetre_coulissante]
+          type_pose:
+            title: Type de pose
+            type: string
+            enum: [nu_exterieur, nu_interieur, tunnel]
+          materiau:
+            title: Matériau
+            type: ["string", "null"]
+            enum: [pvc, bois, bois_metal, metal, null]
+            default: null
+          vitrage:
+            $ref: "#/$defs/vitrage"
+          menuiserie:
+            $ref: "#/$defs/menuiserie"
+        required:
+          - type_baie
+          - type_pose
+          - materiau
+          - vitrage
+          - menuiserie
+      - title: Porte fenêtre
+        type: object
+        properties:
+          type_baie:
+            enum: [porte_fenetre_coulissante, porte_fenetre_battante]
+          type_pose:
+            title: Type de pose
+            type: string
+            enum: [nu_exterieur, nu_interieur, tunnel]
+          materiau:
+            title: Matériau
+            type: ["string", "null"]
+            enum: [pvc, bois, bois_metal, metal, null]
+            default: null
+          presence_soubassement:
+            title: Présence d'un soubassement
+            type: boolean
+          vitrage:
+            $ref: "#/$defs/vitrage"
+          menuiserie:
+            $ref: "#/$defs/menuiserie"
+        required:
+          - type_baie
+          - type_pose
+          - materiau
+          - presence_soubassement
+          - vitrage
+          - menuiserie

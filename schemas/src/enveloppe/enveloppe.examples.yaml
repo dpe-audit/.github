@@ -1,0 +1,192 @@
+- exposition: exposition_simple
+  q4pa_conv: null
+  presence_brasseurs_air: false
+  niveaux:
+    - surface: 100
+      inertie_paroi_verticale: lourde
+      inertie_plancher_bas: lourde
+      inertie_plancher_haut: lourde
+    - surface: 100
+      inertie_paroi_verticale: lourde
+      inertie_plancher_bas: lourde
+      inertie_plancher_haut: lourde
+
+  locaux_non_chauffes:
+    - id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+      description: Un local non chauffé
+      type: espace_tampon_solarise
+      parois:
+        - id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+          description: Paroi d'un local non chauffé donnant sur l'extérieur
+          isolation: isole
+          position:
+            surface: 10
+            mitoyennete: exterieur
+        - id: e5177740-3927-478a-ab69-8f673ec4d073
+          description: Baie d'un local non chauffé donnant sur l'extérieur
+          type_baie: fenetre_battante
+          materiau: pvc
+          type_vitrage: simple_vitrage
+          presence_rupteur_pont_thermique: false
+          position:
+            paroi_id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+            surface: 10
+            mitoyennete: exterieur
+            inclinaison: 90
+            orientation: 0
+
+  murs:
+    - id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+      description: Mur en brique pleine simple de 20 cm d'épaisseur avec doublage en laine de verre de 100 mm.
+      type_structure: brique_pleine_simple
+      epaisseur_structure: 200
+      type_doublage: materiaux_connu
+      presence_enduit_isolant: false
+      paroi_ancienne: false
+      inertie: lourde
+      annee_construction: 1970
+      annee_renovation: 2010
+      u0: 2.5
+      u: 0.3
+      position:
+        surface: 100
+        local_non_chauffe_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        mitoyennete: local_non_chauffe
+        orientation: 0
+      isolation:
+        etat_isolation: isole
+        type_isolation: ite
+        annee_isolation: 2010
+        epaisseur_isolation: 100
+        resistance_thermique_isolation: 4.0
+
+  planchers_bas:
+    - id: ecd4cd8f-7f2b-4427-9d94-b1ed5da33711
+      description: Un plancher bas
+      type_structure: dalle_beton
+      inertie: lourde
+      annee_construction: 1980
+      annee_renovation: null
+      u0: 3.8
+      u: 1.4
+      position:
+        perimetre: 40
+        surface: 100
+        local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+        mitoyennete: local_non_chauffe
+      isolation:
+        etat_isolation: null
+
+  planchers_hauts:
+    - id: ecd4cd8f-7f2b-4427-9d94-b1ed5da33711
+      description: Un plancher haut
+      configuration: combles_perdus
+      type_structure: dalle_beton
+      inertie: lourde
+      annee_construction: 1980
+      annee_renovation: null
+      u0: 3.8
+      u: 1.4
+      position:
+        surface: 100
+        mitoyennete: local_non_chauffe
+        local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+        orientation: null
+      isolation:
+        etat_isolation: null
+
+  baies:
+    - id: 6bc71c8d-11fa-4f36-b40b-b75ddbedf5d5
+      description: Une fenêtre
+      type_baie: fenetre_battante
+      type_pose: nu_interieur
+      materiau: pvc
+      presence_protection_solaire: false
+      type_fermeture: volet_battant_pvc_bois_epaisseur_lte_22_mm
+      annee_installation: 2005
+      ug: 4.8
+      uw: 3.8
+      ujn: 3.4
+      sw: 54
+      position:
+        paroi_id: 6e2f8aea-2215-40c5-bb17-bf1c400ec2e9
+        local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+        surface: 3.2
+        mitoyennete: local_non_chauffe
+        inclinaison: 90
+        orientation: 270
+      vitrage:
+        type_vitrage: double_vitrage
+        nature_lame: argon
+        epaisseur_lame: 12
+        survitrage:
+          type_survitrage: survitrage_simple
+          epaisseur_lame: 12
+      menuiserie:
+        largeur_dormant: 60
+        presence_joint: true
+        presence_retour_isolation: true
+        presence_rupteur_pont_thermique: true
+      double_fenetre:
+        type_baie: fenetre_battante
+        type_pose: nu_interieur
+        materiau: pvc
+        ug: 4.8
+        uw: 3.8
+        sw: 54
+        vitrage:
+          type_vitrage: double_vitrage
+          nature_lame: argon
+          epaisseur_lame: 12
+          survitrage:
+            type_survitrage: survitrage_simple
+            epaisseur_lame: 12
+        menuiserie:
+          largeur_dormant: 60
+          presence_joint: true
+          presence_retour_isolation: true
+          presence_rupteur_pont_thermique: true
+      masques_lointains:
+        - id: 84689d75-6494-425a-8ed6-5e5a26ad9716
+          description: Un masque lointain homogène
+          type_masque: homogene
+          hauteur: 45
+          orientation: 35
+      masques_proches:
+        - id: 84689d75-6494-425a-8ed6-5e5a26ad9716
+          description: Un masque proche
+          type_masque: fond_balcon
+          profondeur: 2.5
+
+  portes:
+    - id: 6bc71c8d-11fa-4f36-b40b-b75ddbedf5d5
+      description: Porte d'entrée
+      type_pose: nu_interieur
+      isolation: isole
+      materiau: pvc
+      presence_sas: false
+      annee_installation: 1980
+      u: 3.8
+      position:
+        paroi_id: 6e2f8aea-2215-40c5-bb17-bf1c400ec2e9
+        local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+        surface: 3.2
+        mitoyennete: local_non_chauffe
+        orientation: 90
+      vitrage:
+        taux_vitrage: 20
+        type_vitrage: simple_vitrage
+      menuiserie:
+        largeur_dormant: 60
+        presence_joint: true
+        presence_retour_isolation: true
+
+  ponts_thermiques:
+    - id: 91ba046e-34e0-48ee-815a-b95f59f4056a
+      description: Un pont thermique
+      longueur: 10
+      kpt: 0.1
+      liaison:
+        type_liaison: plancher_bas_mur
+        mur_id: b0b1933f-8097-4b36-8532-aa1fab8726d2
+        plancher_id: 78ce5abe-e271-43f0-84de-d685ae4da9ef

@@ -1,0 +1,171 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/porte
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Porte
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique de la porte au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description de la porte au format markdown
+    type: string
+  type_pose:
+    title: Type de pose
+    type: string
+    enum: [nu_exterieur, nu_interieur, tunnel]
+  isolation:
+    title: État d'isolation de la porte
+    type: ["string", "null"]
+    enum: [isole, non_isole, null]
+    default: null
+  materiau:
+    title: Matériau de la porte
+    type: ["string", "null"]
+    enum: [pvc, bois, bois_metal, metal, null]
+    default: null
+  presence_sas:
+    title: Présence d'un sas devant la porte
+    type: boolean
+  annee_installation:
+    title: Année d'installation
+    type: ["integer", "null"]
+    default: null
+  u:
+    title: Coefficient de transmission thermique de la porte connu et justifié en W/m²K
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  position:
+    $ref: "#/$defs/position"
+  menuiserie:
+    $ref: "#/$defs/menuiserie"
+  vitrage:
+    $ref: "#/$defs/vitrage"
+required:
+  - id
+  - description
+  - type_pose
+  - isolation
+  - materiau
+  - presence_sas
+  - annee_installation
+  - u
+  - position
+  - vitrage
+  - menuiserie
+$defs:
+  position:
+    title: Position de la porte
+    type: object
+    properties:
+      paroi_id:
+        title: Identifiant de la paroi associée à la porte
+        type: ["string", "null"]
+        format: uuid
+        default: null
+      surface:
+        title: Surface totale de la porte en m²
+        type: number
+        exclusiveMinimum: 0
+      mitoyennete:
+        title: Mitoyenneté de la porte
+        type: string
+        enum:
+          - exterieur
+          - enterre
+          - vide_sanitaire
+          - terre_plein
+          - sous_sol_non_chauffe
+          - local_non_chauffe
+          - local_non_residentiel
+          - local_residentiel
+          - local_non_accessible
+      orientation:
+        title: Orientation de la porte en degré par rapport au nord
+        type: ["number", "null"]
+        minimum: 0
+        exclusiveMaximum: 360
+        default: null
+    required:
+      - paroi_id
+      - surface
+      - mitoyennete
+      - orientation
+    oneOf:
+      - title: Porte donnant sur un local non chauffé
+        type: object
+        properties:
+          mitoyennete:
+            const: local_non_chauffe
+          local_non_chauffe_id:
+            title: Identifiant du local non chauffé associé à la porte
+            type: string
+            format: uuid
+        required:
+          - local_non_chauffe_id
+          - mitoyennete
+      - title: Autres cas
+        type: object
+        properties:
+          mitoyennete:
+            not:
+              const: local_non_chauffe
+        required:
+          - mitoyennete
+  vitrage:
+    title: Vitrage
+    type: object
+    properties:
+      taux_vitrage:
+        title: Taux de vitrage en %
+        description: Une porte avec un taux de vitrage supérieur à 60% est à considérer comme une porte-fenêtre avec soubassement
+        type: number
+        minimum: 0
+        maximum: 60
+    required:
+      - taux_vitrage
+    oneOf:
+      - title: Porte sans vitrage
+        type: object
+        properties:
+          taux_vitrage:
+            const: 0
+        required:
+          - taux_vitrage
+      - title: Porte avec vitrage
+        type: object
+        properties:
+          taux_vitrage:
+            type: number
+            minimumExclusive: 0
+          type_vitrage:
+            title: Type de vitrage
+            type: ["string", "null"]
+            enum: [simple_vitrage, double_vitrage, triple_vitrage, null]
+            default: null
+        required:
+          - taux_vitrage
+          - type_vitrage
+  menuiserie:
+    title: Menuiserie
+    type: object
+    properties:
+      largeur_dormant:
+        title: Largeur dormant en mm
+        type: [number, "null"]
+        minimum: 0
+        default: null
+      presence_joint:
+        title: Présence de joint d'étanchéité
+        type: [boolean, "null"]
+        default: null
+      presence_retour_isolation:
+        title: Présence d'un retour d'isolation
+        type: [boolean, "null"]
+        default: null
+    required:
+      - largeur_dormant
+      - presence_joint
+      - presence_retour_isolation

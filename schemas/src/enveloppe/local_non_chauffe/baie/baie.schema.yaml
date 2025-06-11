@@ -1,0 +1,134 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/local_non_chauffe/baie
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Baie
+type: object
+properties:
+  id:
+    title: Identifiant unique format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  type_baie:
+    title: Type de baie
+    type: string
+    enum:
+      - polycarbonate
+      - fenetre_battante
+      - fenetre_coulissante
+      - porte_fenetre_coulissante
+      - porte_fenetre_battante
+  position:
+    $ref: "#/$defs/position"
+required:
+  - id
+  - description
+  - type_baie
+  - position
+oneOf:
+  - title: Baie en polycarbonate
+    type: object
+    properties:
+      type_baie:
+        const: polycarbonate
+    required:
+      - type_baie
+  - title: Autres cas
+    type: object
+    properties:
+      type_baie:
+        not:
+          const: polycarbonate
+      materiau:
+        title: Matériau de la baie
+        type: ["string", "null"]
+        enum:
+          - pvc
+          - bois
+          - bois_metal
+          - metal
+          - null
+        default: null
+      type_vitrage:
+        title: Type de vitrage
+        type: ["string", "null"]
+        enum:
+          - simple_vitrage
+          - double_vitrage
+          - double_vitrage_fe
+          - triple_vitrage
+          - triple_vitrage_fe
+          - null
+        default: null
+      presence_rupteur_pont_thermique:
+        title: Présence d'un rupteur de pont thermique
+        type: ["boolean", "null"]
+        default: null
+    required:
+      - type_baie
+      - materiau
+      - type_vitrage
+      - presence_rupteur_pont_thermique
+$defs:
+  position:
+    title: Position de la baie
+    type: object
+    properties:
+      paroi_id:
+        title: Identifiant unique de la paroi associée au format UUID
+        type: [string, "null"]
+        format: uuid
+        default: null
+      surface:
+        title: Surface totale en m²
+        type: number
+        exclusiveMinimum: 0
+      mitoyennete:
+        title: Mitoyenneté
+        type: string
+        enum:
+          - exterieur
+          - enterre
+          - vide_sanitaire
+          - terre_plein
+          - sous_sol_non_chauffe
+          - local_non_chauffe
+          - local_non_residentiel
+          - local_residentiel
+          - local_non_accessible
+      inclinaison:
+        title: Inclinaison par rapport à l'horizontal en °
+        type: number
+        minimum: 0
+        maximum: 90
+    required:
+      - surface
+      - mitoyennete
+      - inclinaison
+      - orientation
+    oneOf:
+      - title: Baie horizontale
+        type: object
+        properties:
+          inclinaison:
+            const: 0
+          orientation:
+            const: null
+            default: null
+        required:
+          - inclinaison
+          - orientation
+      - title: Autres cas
+        type: object
+        properties:
+          inclinaison:
+            minimumExlusive: 0
+          orientation:
+            title: Orientation par rapport au nord en °
+            type: number
+            minimum: 0
+            exclusiveMaximum: 360
+        required:
+          - inclinaison
+          - orientation

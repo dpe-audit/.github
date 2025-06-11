@@ -1,37 +1,77 @@
-# Moteur de calcul de la Performance Conventionnelle des Logements (PCL)
-
-> [!NOTE]
-> Ce dépôt couvre uniquement les modèle de données du moteur de calcul et centralise les échanges relatifs à la
-> méthode 3CL (améliorations, failles, interprétations...). La base de code de l'API fait l'objet d'un dépôt
-> dédié accessible [ici](https://github.com/action-21/reno-audit-api).
+# DPE-Audit
 
 > [!IMPORTANT]
 > Ce projet est actuellement en cours de développement.
 
-## Méthode de calcul
+Un projet open source de fiabilisation des données des Diagnostics de Performance Energétique et des Audits énergétiques réglementaires.
 
-Nous proposons une extension de la méthode 3CL-DPE décrite dans le [wiki du projet](https://github.com/action-21/reno-audit/wiki) ainsi qu'une API publique afin d'isoler le recensement (la saisie des données d'entrée) et l'évaluation des performances (le moteur).
+> [!IMPORTANT]
+> Ce projet est actuellement en cours de développement.
 
-Les tables de valeurs conventionnelles sont regroupées dans le dossier /db aux formats csv et xml.
+[👉 Projet](https://github.com/action-21/dpe-audit)
 
-Ce dépôt vise également à recenser les incohérences et limites de la méthode 3CL afin de proposer des solutions validées par la communauté.
+[👉 Schémas](https://github.com/action-21/dpe-audit-schema)
 
-## Modèles de données
+[👉 API](https://github.com/action-21/dpe-audit-api)
 
-Le modèle de données actuellement disponible souffre d'un manque de lisibilité du fait de sa conception à des fins de contrôle de cohérence. Ce projet repart du besoin des usagers et propose un modèle de données orienté métier. La cohérence des informations renseignées est assurée par le moteur et non par le modèle.
+[👉 NodeJS](https://github.com/action-21/dpe-audit-node)
 
-Les modèles de données déduits de la méthode de calcul sont présentés dans le dossier /modele et /schemas (Open API).
+[👉 Schémas](https://github.com/action-21/guichet-unique-controle-renovation-schemas)
 
-Pour une meilleur visualisation des schémas de données, copier le schéma openapi.yaml dans [l'éditeur Swagger](https://editor-next.swagger.io/).
+## 🚀 Quoi ?
 
-## Démo
+Le projet Libre Audit est structuré en deux parties :
 
-Une démo s'appuyant sur la base de données des [DPE Logements existants](https://www.data.gouv.fr/fr/datasets/dpe-logements-existants-depuis-juillet-2021/) sera publiée sur le site du projet.
+- Un standard de données publiques au format « JSON Schema » qui décrit la manière dont est modélisée un bâtiment pour évaluer sa performance énergétique. Ce standard permet également de valider la cohérence des données d'entrée transmises dans le cadre d'un Diagnostic de Performance Energétique ou d'un Audit réglementaire.
 
-## Contact
+- Une API publique qui couvre le cycle de vie d'un DPE-Audit intégrant un moteur de calcul 3CL-DPE. Cette API permet de :
+  - Publier un DPE-Audit dans l'observatoire, cette fonctionnalité est réservée aux éditeurs de logiciels agréés ;
+  - Récupérer un DPE-Audit existant ;
+  - Calculer les données d'un DPE-Audit sur la base de la méthode 3CL-DPE ;
+  - Appliquer des scénarios de travaux à un DPE-Audit existant et recalculer les données 3CL-DPE.
 
-[Adrien Rosi Dit Rozzi](https://www.linkedin.com/in/adrienrosi/)
+## 🌍 Pourquoi ?
 
-## Contribuer
+La fiabilité des données des Diagnostics de Performance Energétique et des Audits réglementaires est un enjeu central pour le pilotage des politiques publiques de rénovation énergétique et l'accompagnement des ménages.
 
-N'hésitez pas à échanger en créant de nouvelles [discussions](./discussions).
+La donnée DPE-Audit peut être décomposée en deux parties : les données d'entrée renseignées par les diagnostiqueurs et auditeurs, utilisées pour calculer les données de sortie à l'aide d'une méthode de calcul officiel - par exemple la méthode « 3CL-DPE » pour les logements existants.
+
+Ces données sont transmises par l'intermédiaire de logiciels agréés par l'Etat, à un observatoire public – l'observatoire DPE-Audit – pour alimenter un open data de la performance énergétique des bâtiments.
+
+La production des données de sortie est ainsi déléguée au marché sous contrôle de l'Etat. Or pour que ce contrôle soit efficace, il est nécessaire de pouvoir vérifier l'exactitude des données calculées, et donc de disposer d'un moteur de calcul public.
+
+Un tel outil n'existe pas pour le moment. Les données publiques DPE-Audit sont par conséquent supposées fiables, une nuance incompatible avec les ambitions énergie-climat de la France.
+
+## ⚙️ Comment ?
+
+1. Publication du standard de données publiques DPE-Audit. La contribution à ce standard est ouverte à toutes et tous, notamment aux éditeurs de logiciel qui auront la charge de l'implémenter.
+   Ce standard sera référencé sur Data.gouv.fr pour ensuite être utilisé à des fins de validation de l'open data de la performance énergétique des bâtiments.
+2. Publication de correctifs et ajustements de la méthode 3CL-DPE pour améliorer la fiabilité des données calculées.
+3. Publication d'une API publique et d'un moteur de calcul 3CL-DPE en open source. Des travaux complémentaires peuvent être nécessaires pour améliorer les contrôles de cohérence.
+4. Intégration par les éditeurs de logiciel agréés. Les données d'entrée sont transmises par le logiciel, les données de sortie sont calculées par le moteur de calcul public.
+5. Migration des données de l'observatoire DPE-Audit vers le nouveau schéma de données.
+
+## 🎯 Pour qui ?
+
+- Auditeurs énergétiques
+- Diagnostiqueurs
+- Editeurs de logiciels
+- Ménages
+
+## 🤝 Avec qui ?
+
+- Editeurs de logiciels
+- Observatoire DPE-Audit
+- ADEME - Agence de la transition écologique
+
+## 📍 Où ?
+
+Libre Audit intègre une version ajustée de la méthode 3CL-DPE applicable sur le territoire métropolitain. Des travaux complémentaires sont prévus pour étendre et adapter cette méthode aux territoires ultra-marins.
+
+## 📆 Quand ?
+
+Une version de développement (alpha) est actuellement disponible.
+
+Une version stable est prévue pour septembre 2025.
+
+Une migration des données de l'observatoire DPE-Audit vers le nouveau standard sera possible à cette échéance.

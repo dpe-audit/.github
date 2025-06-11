@@ -1,0 +1,5 @@
+﻿type_generateur;energie_generateur;rg
+chaudiere;electricite;0.97
+chauffe_eau_instantane;electricite;1
+chauffe_eau_vertical;electricite;1
+chauffe_eau_horizontal;electricite;1

@@ -1,0 +1,9 @@
+﻿zone_climatique;type_batiment;fch;tv_facteur_couverture_solaire_id
+H1a;maison;0.25;1
+H1b;maison;0.22;2
+H1c;maison;0.28;3
+H2a;maison;0.34;4
+H2b;maison;0.33;5
+H2c;maison;0.38;6
+H2d;maison;0.39;7
+H3;maison;0.52;8

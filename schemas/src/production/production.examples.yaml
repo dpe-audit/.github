@@ -1,0 +1,7 @@
+- panneaux_photovoltaiques:
+    - id: 4634c0b5-a515-4aa7-abc2-c6d6d81af75c
+      description: Un panneau photovoltaïque
+      orientation: 180
+      inclinaison: 30
+      modules: 6
+      surface: 10

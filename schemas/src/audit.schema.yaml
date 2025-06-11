@@ -1,0 +1,197 @@
+$id: https://schemas.dpe-audit.fr/audit
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Audit
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique de l'audit au format UUID
+    type: string
+    format: uuid
+  date_etablissement:
+    title: Date d'établissement
+    type: string
+    format: date
+  adresse:
+    $ref: "#/$defs/adresse"
+  batiment:
+    $ref: "#/$defs/batiment"
+  logements:
+    title: Liste des logements visités
+    type: array
+    items:
+      $ref: "#/$defs/logement"
+  enveloppe:
+    $ref: /enveloppe
+  ventilation:
+    $ref: /ventilation
+  refroidissement:
+    $ref: /refroidissement
+  chauffage:
+    $ref: /chauffage
+  ecs:
+    $ref: /ecs
+  production:
+    $ref: /production
+required:
+  - id
+  - date_etablissement
+  - adresse
+  - batiment
+  - logements
+  - enveloppe
+  - ventilation
+  - chauffage
+  - ecs
+  - refroidissement
+  - production
+allOf:
+  - oneOf:
+      - title: Maison individuelle
+        type: object
+        properties:
+          batiment:
+            properties:
+              type:
+                const: maison
+            required:
+              - type
+          logements:
+            type: array
+            maxContains: 2
+        required:
+          - batiment
+          - logements
+      - title: Immeuble collectif
+        type: object
+        properties:
+          batiment:
+            properties:
+              type:
+                const: immeuble
+            required:
+              - type
+          logements:
+            type: array
+            minContains: 3
+        required:
+          - batiment
+          - logements
+$defs:
+  adresse:
+    title: Adresse
+    type: object
+    properties:
+      numero:
+        title: Numéro avec indice de répétition éventuel (bis, ter, A, B)
+        type: ["string", "null"]
+        default: null
+      nom:
+        title: Numéro éventuel et nom de voie ou lieu dit
+        type: string
+      code_postal:
+        title: Code postal de la commune
+        type: string
+      code_commune:
+        title: Code INSEE de la commune
+        type: string
+      commune:
+        title: Commune
+        type: string
+      ban_id:
+        title: Identifiant BAN
+        type: ["string", "null"]
+        default: null
+    required:
+      - numero
+      - nom
+      - code_postal
+      - code_commune
+      - commune
+      - ban_id
+  batiment:
+    title: Bâtiment
+    type: object
+    properties:
+      type:
+        title: Type de bâtiment
+        type: string
+        enum:
+          - maison
+          - immeuble
+      annee_construction:
+        title: Année de construction
+        type: integer
+      altitude:
+        title: Altitude du bâtiment en m
+        type: number
+      logements:
+        title: Nombre de logements
+        type: integer
+        exclusiveMinimum: 0
+      surface_habitable:
+        title: Surface habitable en m²
+        type: number
+        exclusiveMinimum: 0
+      hauteur_sous_plafond:
+        title: Hauteur moyenne sous plafond en m
+        type: number
+        exclusiveMinimum: 0
+      materiaux_anciens:
+        title: Bâtiment majoritairement composé de matériaux anciens
+        type: boolean
+      rnb_id:
+        title: Identifiant RNB
+        type: ["string", "null"]
+        default: null
+    required:
+      - type
+      - annee_construction
+      - altitude
+      - logements
+      - surface_habitable
+      - hauteur_sous_plafond
+      - materiaux_anciens
+      - rnb_id
+  logement:
+    title: Logement
+    type: object
+    properties:
+      id:
+        title: Identifiant unique au format UUID
+        type: string
+        format: uuid
+      description:
+        title: Description au format markdown
+        type: string
+      surface_habitable:
+        title: Surface habitable en m²
+        type: number
+      hauteur_sous_plafond:
+        title: Hauteur sous plafond moyenne en m
+        type: number
+      position:
+        title: Position du logement
+        type: string
+        enum:
+          - rdc
+          - etage_intermediaire
+          - dernier_etage
+      typologoie:
+        title: Typologie du logement
+        type: string
+        enum:
+          - T1
+          - T2
+          - T3
+          - T4
+          - T5
+          - T6
+          - T7
+    required:
+      - id
+      - description
+      - surface_habitable
+      - hauteur_sous_plafond
+      - position
+      - typologoie

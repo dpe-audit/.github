@@ -1,0 +1,32 @@
+- id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+  description: Pompe à chaleur hybride
+  type: pac_hybride_air_eau
+  energie: electricite
+  energie_partie_chaudiere: gaz_naturel
+  type_chaudiere: chaudiere_murale
+  mode_combustion: condensation
+  presence_ventouse: true
+  presence_regulation_combustion: true
+  pn: 15
+  pveilleuse: 120
+  qp0: 50
+  rpn: 90
+  rpint: 85
+  tfonc30: 70
+  tfonc100: 100
+  generateur_mixte_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+  position_volume_chauffe: false
+  generateur_collectif: true
+  generateur_multi_batiment: false
+  annee_installation: 2000
+  scop: 4.5
+- id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+  description: Réseau de chaleur
+  type: reseau_chaleur
+  energie: reseau_chaleur
+  reseau_chaleur_id: reseau-chaleur
+  position_volume_chauffe: false
+  generateur_collectif: true
+  generateur_multi_batiment: true
+  annee_installation: 2000
+  generateur_mixte_id: null

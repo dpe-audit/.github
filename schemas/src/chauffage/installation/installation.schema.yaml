@@ -1,0 +1,97 @@
+$id: https://schemas.dpe-audit.fr/chauffage/installation
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Installation de chauffage
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique de l'installation de chauffage au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description de l'installation de chauffage au format markdown
+    type: string
+  surface:
+    title: Surface couverte par l'installation de chauffage en m²
+    type: number
+    exclusiveMinimum: 0
+  comptage_individuel:
+    title: Comptage individuel
+    type: boolean
+  solaire_thermique:
+    title: Solaire thermique
+    type: ["object", "null"]
+    oneOf:
+      - const: null
+      - $ref: "#/$defs/solaire"
+  regulation_centrale:
+    $ref: "#/$defs/regulation"
+    title: Régulation centrale
+  regulation_terminale:
+    $ref: "#/$defs/regulation"
+    title: Régulation terminale
+required:
+  - id
+  - description
+  - surface
+  - comptage_individuel
+  - solaire_thermique
+  - regulation_centrale
+  - regulation_terminale
+$defs:
+  solaire:
+    title: Solaire thermique
+    type: object
+    properties:
+      usage:
+        title: Usages couverts par le solaire thermique
+        type: string
+        enum:
+          - chauffage
+          - chauffage_ecs
+        default: chauffage
+      annee_installation:
+        title: Année d'installation
+        type: ["integer", "null"]
+        default: null
+      fch:
+        title: Facteur de couverture solaire connu et justifié en %
+        type: number
+        minimum: 0
+        maximum: 100
+    required:
+      - usage
+      - annee_installation
+      - fch
+  regulation:
+    title: Régulation
+    type: object
+    properties:
+      presence_regulation:
+        title: Présence d'une régulation
+        type: boolean
+    required:
+      - presence_regulation
+    oneOf:
+      - title: Régulation
+        type: object
+        properties:
+          presence_regulation:
+            const: true
+          minimum_temperature:
+            title: Régulation avec minimum de température
+            type: boolean
+          detection_presence:
+            title: Détection de présence
+            type: boolean
+        required:
+          - presence_regulation
+          - minimum_temperature
+          - detection_presence
+      - title: Pas de régulation
+        type: object
+        properties:
+          presence_regulation:
+            const: false
+        required:
+          - presence_regulation

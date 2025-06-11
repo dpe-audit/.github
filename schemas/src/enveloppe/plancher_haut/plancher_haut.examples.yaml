@@ -1,0 +1,16 @@
+- id: ecd4cd8f-7f2b-4427-9d94-b1ed5da33711
+  description: Un plancher haut
+  configuration: combles_perdus
+  type_structure: dalle_beton
+  inertie: lourde
+  annee_construction: 1980
+  annee_renovation: null
+  u0: 3.8
+  u: 1.4
+  position:
+    surface: 100
+    mitoyennete: local_non_chauffe
+    local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+    orientation: null
+  isolation:
+    etat_isolation: null

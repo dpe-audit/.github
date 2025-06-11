@@ -1,0 +1,34 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/baie/masque_lointain
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Masque lointain
+type: object
+properties:
+  id:
+    title: Identifiant au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description du masque lointain
+    type: string
+  type_masque:
+    title: Type de masque lointain
+    type: string
+    enum:
+      - homogene
+      - non_homogene
+  hauteur:
+    title: Hauteur du masque lointain en angle
+    type: number
+    exlusiveMinimum: 0
+    exclusiveMaximum: 80
+  orientation:
+    title: Orientation du masque lointain par rapport au nord en angle
+    type: number
+    minimum: 0
+    exclusiveMaximum: 360
+required:
+  - id
+  - description
+  - type_masque
+  - hauteur
+  - orientation

@@ -1,0 +1,7 @@
+- id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+  description: Une installation d'eau chaude sanitaire
+  surface: 100
+  solaire_thermique:
+    usage: ecs
+    annee_installation: 2000
+    fecs: 0.5

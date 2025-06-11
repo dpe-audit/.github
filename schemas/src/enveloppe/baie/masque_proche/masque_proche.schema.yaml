@@ -1,0 +1,50 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/baie/masque_proche
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Masque proche
+type: object
+properties:
+  id:
+    title: Identifiant au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format mardkown
+    type: string
+  type_masque:
+    title: Type de masque proche
+    type: string
+    enum:
+      - fond_balcon
+      - fond_et_flanc_loggias
+      - balcon_ou_auvent
+      - paroi_laterale_sans_obstacle_au_sud
+      - paroi_laterale_avec_obstacle_au_sud
+required:
+  - id
+  - description
+  - type_masque
+oneOf:
+  - title: Paroi latérale
+    type: object
+    properties:
+      type_masque:
+        enum:
+          - paroi_laterale_sans_obstacle_au_sud
+          - paroi_laterale_avec_obstacle_au_sud
+    required:
+      - type_masque
+  - title: Autres masques proches
+    type: object
+    properties:
+      type_masque:
+        enum:
+          - fond_balcon
+          - fond_et_flanc_loggias
+          - balcon_ou_auvent
+      profondeur:
+        title: Profondeur du masque en m
+        type: number
+        exclusiveMinimum: 0
+    required:
+      - type_masque
+      - profondeur

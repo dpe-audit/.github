@@ -1,0 +1,12 @@
+- id: e5177740-3927-478a-ab69-8f673ec4d073
+  description: Baie d'un local non chauffé donnant sur l'extérieur
+  type_baie: fenetre_battante
+  materiau: pvc
+  type_vitrage: simple_vitrage
+  presence_rupteur_pont_thermique: false
+  position:
+    paroi_id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+    surface: 10
+    mitoyennete: exterieur
+    inclinaison: 90
+    orientation: 0

@@ -1,0 +1,6 @@
+- id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+  description: Paroi d'un local non chauffé donnant sur l'extérieur
+  isolation: isole
+  position:
+    surface: 10
+    mitoyennete: exterieur

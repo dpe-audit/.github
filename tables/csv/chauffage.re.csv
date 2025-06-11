@@ -1,0 +1,17 @@
+﻿type_emission;type_generateur;label_generateur;re
+radiateur;convecteur_electrique;nf_performance;0.95
+radiateur;convecteur_bi_jonction;nf_performance;0.95
+radiateur;panneau_rayonnant_electrique;nf_performance;0.97
+radiateur;radiateur_electrique;nf_performance;0.97
+radiateur;radiateur_electrique_accumulation;nf_performance;0.97
+radiateur;convecteur_electrique;;0.95
+radiateur;convecteur_bi_jonction;;0.95
+radiateur;panneau_rayonnant_electrique;;0.95
+radiateur;radiateur_electrique;;0.95
+radiateur;radiateur_electrique_accumulation;;0.95
+plancher_chauffant;plancher_rayonnant_electrique;;0.95
+plafond_chauffant;plafond_rayonnant_electrique;;0.95
+air_souffle;;;0.95
+plancher_chauffant;;;1
+plafond_chauffant;;;0.98
+radiateur;;;0.95

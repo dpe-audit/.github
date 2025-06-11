@@ -1,0 +1,54 @@
+$id: https://schemas.dpe-audit.fr/ecs/installation
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Installation d'eau chaude sanitaire
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique sanitaire au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description sanitaire au format markdown
+    type: string
+  surface:
+    title: Surface couverte par l'installation en m²
+    type: number
+    exclusiveMinimum: 0
+  solaire_thermique:
+    title: Solaire thermique
+    type: ["object", "null"]
+    default: null
+    oneOf:
+      - $ref: "#/$defs/solaire"
+      - const: null
+required:
+  - id
+  - description
+  - surface
+  - solaire_thermique
+$defs:
+  solaire:
+    title: Solaire thermique
+    type: object
+    properties:
+      usage:
+        title: Usages couverts par le solaire thermique
+        type: string
+        enum:
+          - ecs
+          - chauffage_ecs
+      annee_installation:
+        title: Année d'installation
+        type: ["integer", "null"]
+        default: null
+      fecs:
+        title: Facteur de couverture solaire connue et justifié en %
+        type: ["number", "null"]
+        minimum: 0
+        maximum: 100
+        default: null
+    required:
+      - usage
+      - annee_installation
+      - fecs

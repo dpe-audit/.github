@@ -1,0 +1,34 @@
+- generateurs:
+    - id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+      description: Un générateur d'eau chaude sanitaire
+      generateur_collectif: false
+      generateur_multi_batiment: false
+      position_volume_chauffe: true
+      annee_installation: 2000
+      type: cet_air_ambiant
+      energie: electricite
+      volume_stockage: 200
+      pn: 10
+      cop: 3
+
+  installations:
+    - id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+      description: Une installation d'eau chaude sanitaire
+      surface: 100
+      solaire_thermique:
+        usage: ecs
+        annee_installation: 2000
+        fecs: 0.5
+
+  systemes:
+    - id: 570c8e85-524f-4279-81ad-87f2014f9205
+      generateur_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+      installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+      reseau:
+        alimentation_contigue: true
+        niveaux_desservis: 1
+        isolation: isole
+        bouclage: non_boucle
+      stockage:
+        volume: 200
+        position_volume_chauffe: true

@@ -1,0 +1,382 @@
+- id: f7a7867c-028c-4f1c-997e-465f7ed954a4
+  date_etablissement: "2025-01-01"
+  adresse:
+    numero: "1"
+    nom: rue de la Paix
+    code_postal: "75000"
+    code_commune: "75000"
+    commune: Paris
+    ban_id: null
+  batiment:
+    type: maison
+    annee_construction: 2000
+    altitude: 0
+    logements: 1
+    surface_habitable: 100
+    hauteur_sous_plafond: 2.5
+    materiaux_anciens: true
+    rnb_id: null
+  logements:
+    - id: fe60b38b-674f-4e1d-9cc6-4123b7475353
+      description: Un logement
+      surface_habitable: 100
+      hauteur_sous_plafond: 2.5
+      position: rdc
+      typologoie: T3
+
+  chauffage:
+    generateurs:
+      - id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+        description: Pompe à chaleur hybride
+        type: pac_hybride_air_eau
+        energie: electricite
+        energie_partie_chaudiere: gaz_naturel
+        type_chaudiere: chaudiere_murale
+        mode_combustion: condensation
+        presence_ventouse: true
+        presence_regulation_combustion: true
+        pn: 15
+        pveilleuse: 120
+        qp0: 50
+        rpn: 90
+        rpint: 85
+        tfonc30: 70
+        tfonc100: 100
+        generateur_mixte_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+        position_volume_chauffe: false
+        generateur_collectif: true
+        generateur_multi_batiment: false
+        annee_installation: 2000
+        scop: 4.5
+      - id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+        description: Réseau de chaleur
+        type: reseau_chaleur
+        energie: reseau_chaleur
+        reseau_chaleur_id: reseau-chaleur
+        position_volume_chauffe: false
+        generateur_collectif: true
+        generateur_multi_batiment: true
+        annee_installation: 2000
+        generateur_mixte_id: null
+
+    emetteurs:
+      - id: 1e9098f0-5952-4c95-8608-291689103c29
+        description: Un émetteur de chaleur
+        type: radiateur_bitube
+        temperature_distribution: moyenne
+        presence_robinet_thermostatique: true
+        annee_installation: 2000
+
+    installations:
+      - id: 9d615f30-c6f8-406f-8a1f-899617c472db
+        description: Une installation de chauffage
+        surface: 100
+        comptage_individuel: true
+        solaire_thermique:
+          usage: chauffage
+          annee_installation: 2010
+          fch: 45
+        regulation_centrale:
+          presence_regulation: true
+          minimum_temperature: true
+          detection_presence: true
+        regulation_terminale:
+          presence_regulation: true
+          minimum_temperature: false
+          detection_presence: false
+
+    systemes:
+      - id: c7b1ea85-701b-4d01-b3b1-02aeb15964a4
+        installation_id: 9d615f30-c6f8-406f-8a1f-899617c472db
+        generateur_id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+        type: chauffage_central
+        reseau:
+          type_distribution: hydraulique
+          presence_circulateur_externe: false
+          niveaux_desservis: 2
+          isolation: non_isole
+        emetteurs:
+          - 1e9098f0-5952-4c95-8608-291689103c29
+
+  ecs:
+    generateurs:
+      - id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+        description: Un générateur d'eau chaude sanitaire
+        generateur_collectif: false
+        generateur_multi_batiment: false
+        position_volume_chauffe: true
+        annee_installation: 2000
+        type: cet_air_ambiant
+        energie: electricite
+        volume_stockage: 200
+        pn: 10
+        cop: 3
+
+    installations:
+      - id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+        description: Une installation d'eau chaude sanitaire
+        surface: 100
+        solaire_thermique:
+          usage: ecs
+          annee_installation: 2000
+          fecs: 0.5
+
+    systemes:
+      - id: 570c8e85-524f-4279-81ad-87f2014f9205
+        generateur_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+        installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+        reseau:
+          alimentation_contigue: true
+          niveaux_desservis: 1
+          isolation: isole
+          bouclage: non_boucle
+        stockage:
+          volume: 200
+          position_volume_chauffe: true
+
+  enveloppe:
+    exposition: exposition_simple
+    q4pa_conv: null
+    presence_brasseurs_air: false
+    niveaux:
+      - surface: 100
+        inertie_paroi_verticale: lourde
+        inertie_plancher_bas: lourde
+        inertie_plancher_haut: lourde
+      - surface: 100
+        inertie_paroi_verticale: lourde
+        inertie_plancher_bas: lourde
+        inertie_plancher_haut: lourde
+
+    locaux_non_chauffes:
+      - id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+        description: Un local non chauffé
+        type: espace_tampon_solarise
+        parois:
+          - id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+            description: Paroi d'un local non chauffé donnant sur l'extérieur
+            isolation: isole
+            position:
+              surface: 10
+              mitoyennete: exterieur
+        baies:
+          - id: e5177740-3927-478a-ab69-8f673ec4d073
+            description: Baie d'un local non chauffé donnant sur l'extérieur
+            type_baie: fenetre_battante
+            materiau: pvc
+            type_vitrage: simple_vitrage
+            presence_rupteur_pont_thermique: false
+            position:
+              paroi_id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+              surface: 10
+              mitoyennete: exterieur
+              inclinaison: 90
+              orientation: 0
+
+    murs:
+      - id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+        description: Mur en brique pleine simple de 20 cm d'épaisseur avec doublage en laine de verre de 100 mm.
+        type_structure: brique_pleine_simple
+        epaisseur_structure: 200
+        type_doublage: materiaux_connu
+        presence_enduit_isolant: false
+        paroi_ancienne: false
+        inertie: lourde
+        annee_construction: 1970
+        annee_renovation: 2010
+        u0: 2.5
+        u: 0.3
+        position:
+          surface: 100
+          local_non_chauffe_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+          mitoyennete: local_non_chauffe
+          orientation: 0
+        isolation:
+          etat_isolation: isole
+          type_isolation: ite
+          annee_isolation: 2010
+          epaisseur_isolation: 100
+          resistance_thermique_isolation: 4.0
+
+    planchers_bas:
+      - id: ecd4cd8f-7f2b-4427-9d94-b1ed5da33711
+        description: Un plancher bas
+        type_structure: dalle_beton
+        inertie: lourde
+        annee_construction: 1980
+        annee_renovation: null
+        u0: 3.8
+        u: 1.4
+        position:
+          perimetre: 40
+          surface: 100
+          local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+          mitoyennete: local_non_chauffe
+        isolation:
+          etat_isolation: null
+
+    planchers_hauts:
+      - id: ecd4cd8f-7f2b-4427-9d94-b1ed5da33711
+        description: Un plancher haut
+        configuration: combles_perdus
+        type_structure: dalle_beton
+        inertie: lourde
+        annee_construction: 1980
+        annee_renovation: null
+        u0: 3.8
+        u: 1.4
+        position:
+          surface: 100
+          mitoyennete: local_non_chauffe
+          local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+          orientation: null
+        isolation:
+          etat_isolation: null
+
+    baies:
+      - id: 6bc71c8d-11fa-4f36-b40b-b75ddbedf5d5
+        description: Une fenêtre
+        type_baie: fenetre_battante
+        type_pose: nu_interieur
+        materiau: pvc
+        presence_protection_solaire: false
+        type_fermeture: volet_battant_pvc_bois_epaisseur_lte_22_mm
+        annee_installation: 2005
+        ug: 4.8
+        uw: 3.8
+        ujn: 3.4
+        sw: 54
+        position:
+          paroi_id: 6e2f8aea-2215-40c5-bb17-bf1c400ec2e9
+          local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+          surface: 3.2
+          mitoyennete: local_non_chauffe
+          inclinaison: 90
+          orientation: 270
+        vitrage:
+          type_vitrage: double_vitrage
+          nature_lame: argon
+          epaisseur_lame: 12
+          survitrage:
+            type_survitrage: survitrage_simple
+            epaisseur_lame: 12
+        menuiserie:
+          largeur_dormant: 60
+          presence_joint: true
+          presence_retour_isolation: true
+          presence_rupteur_pont_thermique: true
+        double_fenetre:
+          type_baie: fenetre_battante
+          type_pose: nu_interieur
+          materiau: pvc
+          ug: 4.8
+          uw: 3.8
+          sw: 54
+          vitrage:
+            type_vitrage: double_vitrage
+            nature_lame: argon
+            epaisseur_lame: 12
+            survitrage:
+              type_survitrage: survitrage_simple
+              epaisseur_lame: 12
+          menuiserie:
+            largeur_dormant: 60
+            presence_joint: true
+            presence_retour_isolation: true
+            presence_rupteur_pont_thermique: true
+        masques_lointains:
+          - id: 84689d75-6494-425a-8ed6-5e5a26ad9716
+            description: Un masque lointain homogène
+            type_masque: homogene
+            hauteur: 45
+            orientation: 35
+        masques_proches:
+          - id: 84689d75-6494-425a-8ed6-5e5a26ad9716
+            description: Un masque proche
+            type_masque: fond_balcon
+            profondeur: 2.5
+
+    portes:
+      - id: 6bc71c8d-11fa-4f36-b40b-b75ddbedf5d5
+        description: Porte d'entrée
+        type_pose: nu_interieur
+        isolation: isole
+        materiau: pvc
+        presence_sas: false
+        annee_installation: 1980
+        u: 3.8
+        position:
+          paroi_id: 6e2f8aea-2215-40c5-bb17-bf1c400ec2e9
+          local_non_chauffe_id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+          surface: 3.2
+          mitoyennete: local_non_chauffe
+          orientation: 90
+        vitrage:
+          taux_vitrage: 20
+          type_vitrage: simple_vitrage
+        menuiserie:
+          largeur_dormant: 60
+          presence_joint: true
+          presence_retour_isolation: true
+
+    ponts_thermiques:
+      - id: 91ba046e-34e0-48ee-815a-b95f59f4056a
+        description: Un pont thermique
+        longueur: 10
+        kpt: 0.1
+        liaison:
+          type_liaison: plancher_bas_mur
+          mur_id: b0b1933f-8097-4b36-8532-aa1fab8726d2
+          plancher_id: 78ce5abe-e271-43f0-84de-d685ae4da9ef
+
+  production:
+    panneaux_photovoltaiques:
+      - id: 4634c0b5-a515-4aa7-abc2-c6d6d81af75c
+        description: Un panneau photovoltaïque
+        orientation: 180
+        inclinaison: 30
+        modules: 6
+        surface: 10
+
+  refroidissement:
+    generateurs:
+      - id: a7396354-ba21-40d9-b50f-d35da67a70c1
+        description: Un générateur de refroidissement
+        annee_installation: 2000
+        type: pac_air_air
+        energie: electricite
+        seer: null
+
+    installations:
+      - id: 5124d497-6458-45a9-a9b0-8c84d14139f6
+        description: Une installation de refroidissement
+        surface: 100
+
+    systemes:
+      - id: b1b55600-9776-4543-b7bb-3b2a411bd4bb
+        installation_id: 5124d497-6458-45a9-a9b0-8c84d14139f6
+        generateur_id: a7396354-ba21-40d9-b50f-d35da67a70c1
+
+  ventilation:
+    generateurs:
+      - id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+        description: Un générateur de ventilation
+        type: vmc_simple_flux
+        type_vmc: hygroreglable_type_b
+        presence_echangeur_thermique: false
+        generateur_collectif: false
+        annee_installation: 2000
+
+    installations:
+      - id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+        description: Une installation de ventilation
+        surface: 100
+
+    systemes:
+      - id: 570c8e85-524f-4279-81ad-87f2014f9205
+        type: ventilation_mecanique
+        installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6
+        generateur_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+      - id: e5258a6a-ef09-4895-bb13-46e1d1651153
+        type: ventilation_naturelle_ouverture_fenetres
+        installation_id: 9aec1555-e0fa-4b31-8978-6f7d1df394b6

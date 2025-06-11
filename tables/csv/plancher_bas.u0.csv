@@ -1,0 +1,13 @@
+﻿type_structure;u0;tv_upb0_id
+inconnu;2;1
+plancher_avec_ou_sans_remplissage;1.45;2
+plancher_entre_solives_metalliques;1.45;3
+plancher_entre_solives_bois;1.1;4
+plancher_bois_sur_solives_metalliques;1.6;5
+bardeaux_et_remplissage;1.1;6
+voutains_sur_solives_metalliques;1.75;7
+voutains_briques_ou_moellons;0.8;8
+dalle_beton;2;9
+plancher_bois_sur_solives_bois;1.6;10
+plancher_lourd_type_entrevous_terre_cuite_ou_poutrelles_beton;2;11
+plancher_entrevous_isolant;0.45;12

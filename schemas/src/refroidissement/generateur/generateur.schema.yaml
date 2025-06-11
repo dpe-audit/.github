@@ -1,0 +1,96 @@
+$id: https://schemas.dpe-audit.fr/refroidissement/generateur
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Générateur de refroidissement
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  type:
+    title: Type de générateur
+    type: string
+    enum:
+      - pac_air_air
+      - pac_air_eau
+      - pac_eau_eau
+      - pac_eau_glycolee_eau
+      - pac_geothermique
+      - autre_systeme_thermodynamique
+      - autre
+      - reseau_froid
+  annee_installation:
+    title: Année d'installation connue et justifiée
+    type: ["integer", "null"]
+    default: null
+required:
+  - id
+  - description
+  - type
+  - energie
+  - annee_installation
+oneOf:
+  - title: Pompe à chaleur
+    type: object
+    properties:
+      type:
+        enum:
+          - pac_air_air
+          - pac_air_eau
+          - pac_eau_eau
+          - pac_eau_glycolee_eau
+          - pac_geothermique
+          - autre_systeme_thermodynamique
+      energie:
+        title: Énergie utilisée par le générateur
+        type: string
+        const: electricite
+      seer:
+        title: Coefficient d'efficience énergétique saisonnier connu et justifié
+        type: ["number", "null"]
+        exclusiveMinimum: 0
+        default: null
+    required:
+      - type
+      - energie
+      - seer
+  - title: Climatiseur
+    type: object
+    properties:
+      type:
+        const: autre
+      energie:
+        title: Énergie utilisée par le générateur
+        type: string
+        enum:
+          - electricite
+          - gaz_naturel
+          - gpl
+      seer:
+        title: Coefficient d'efficience énergétique saisonnier connu et justifié
+        type: ["number", "null"]
+        exclusiveMinimum: 0
+        default: null
+    required:
+      - type
+      - energie
+      - seer
+  - title: Réseau de froid
+    type: object
+    properties:
+      type:
+        const: reseau_froid
+      energie:
+        const: reseau_froid
+      reseau_froid_id:
+        title: Identifiant unique du réseau de froid
+        type: ["string", "null"]
+        default: null
+    required:
+      - type
+      - energie
+      - reseau_froid_id

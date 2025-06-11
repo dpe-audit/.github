@@ -1,0 +1,17 @@
+﻿type_masque_lointain;orientation_baie;hauteur_masque_alpha/gte;hauteur_masque_alpha/lt;fe2;hauteur_alpha_defaut;tv_coef_masque_lointain_homogene_id
+homogene;N;0;15;1;7.5;1
+homogene;N;15;30;0.82;22.5;2
+homogene;N;30;60;0.5;45;3
+homogene;N;60;;0.3;60;4
+homogene;S;0;15;1;7.5;5
+homogene;S;15;30;0.8;22.5;6
+homogene;S;30;60;0.3;45;7
+homogene;S;60;;0.1;60;8
+homogene;E;0;15;1;7.5;9
+homogene;E;15;30;0.77;22.5;10
+homogene;E;30;60;0.4;45;11
+homogene;E;60;;0.2;60;12
+homogene;O;0;15;1;7.5;9
+homogene;O;15;30;0.77;22.5;10
+homogene;O;30;60;0.4;45;11
+homogene;O;60;;0.2;60;12

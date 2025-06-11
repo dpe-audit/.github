@@ -1,0 +1,16 @@
+- id: 9d615f30-c6f8-406f-8a1f-899617c472db
+  description: Une installation de chauffage
+  surface: 100
+  comptage_individuel: true
+  solaire_thermique:
+    usage: chauffage
+    annee_installation: 2010
+    fch: 45
+  regulation_centrale:
+    presence_regulation: true
+    minimum_temperature: true
+    detection_presence: true
+  regulation_terminale:
+    presence_regulation: true
+    minimum_temperature: false
+    detection_presence: false

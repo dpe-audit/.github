@@ -1,0 +1,23 @@
+- id: 30972a71-398f-4eb9-a902-0a6665d94a4f
+  description: Un local non chauffé
+  type: espace_tampon_solarise
+  parois:
+    - id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+      description: Paroi d'un local non chauffé donnant sur l'extérieur
+      isolation: isole
+      position:
+        surface: 10
+        mitoyennete: exterieur
+  baies:
+    - id: e5177740-3927-478a-ab69-8f673ec4d073
+      description: Baie d'un local non chauffé donnant sur l'extérieur
+      type_baie: fenetre_battante
+      materiau: pvc
+      type_vitrage: simple_vitrage
+      presence_rupteur_pont_thermique: false
+      position:
+        paroi_id: ff9008dc-f03e-4c1e-b523-5184ba1e63c6
+        surface: 10
+        mitoyennete: exterieur
+        inclinaison: 90
+        orientation: 0

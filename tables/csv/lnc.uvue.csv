@@ -1,0 +1,14 @@
+﻿type_local_non_chauffe;uvue;tv_uvue_id
+garage;3;1
+cellier;3;2
+comble_fortement_ventile;9;3
+comble_faiblement_ventile;3;4
+comble_tres_faiblement_ventile;0.3;5
+circulation_sans_ouverture_exterieure;0;6
+circulation_avec_ouverture_exterieure;0.3;7
+circulation_avec_bouche_ou_gaine_desenfumage_ouverte;3;8
+hall_entree_avec_fermeture_automatique;0.3;9
+hall_entree_sans_fermeture_automatique;3;10
+garage_collectif;3;11
+autres;3;12
+espace_tampon_solarise;3;

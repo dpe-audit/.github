@@ -1,0 +1,11 @@
+- id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+  description: Un générateur d'eau chaude sanitaire
+  generateur_collectif: false
+  generateur_multi_batiment: false
+  position_volume_chauffe: true
+  annee_installation: 2000
+  type: cet_air_ambiant
+  energie: electricite
+  volume_stockage: 200
+  pn: 10
+  cop: 3

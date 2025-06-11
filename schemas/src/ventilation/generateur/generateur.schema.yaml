@@ -1,0 +1,78 @@
+$id: https://schemas.dpe-audit.fr/ventilation/generateur
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Générateur de ventilation
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique du générateur de ventilation au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description du générateur de ventilation au format markdown
+    type: string
+  type:
+    title: Type de générateur
+    type: string
+    enum:
+      - vmc_simple_flux
+      - vmc_simple_flux_gaz
+      - vmc_basse_pression
+      - vmc_double_flux
+      - ventilation_hybride
+      - ventilation_mecanique
+      - puit_climatique
+      - vmi
+      - vmr
+  generateur_collectif:
+    title: Générateur collectif de ventilation
+    type: boolean
+  presence_echangeur_thermique:
+    title: Présence d'un échangeur thermique
+    type: ["boolean", "null"]
+    default: null
+  annee_installation:
+    title: Année d'installation du générateur de ventilation
+    type: ["integer", "null"]
+    default: null
+required:
+  - id
+  - description
+  - type
+  - generateur_collectif
+  - presence_echangeur_thermique
+  - annee_installation
+oneOf:
+  - title: Ventilation Mécanique Contrôlée
+    type: object
+    properties:
+      type:
+        enum:
+          - vmc_simple_flux
+          - vmc_simple_flux_gaz
+          - vmc_basse_pression
+          - vmc_double_flux
+          - ventilation_hybride
+      type_vmc:
+        title: Type de Ventilation Mécanique Contrôlée
+        type: ["string", "null"]
+        enum:
+          - autoreglable
+          - hygroreglable_type_a
+          - hygroreglable_type_b
+          - null
+        default: null
+    required:
+      - type
+      - type_vmc
+  - title: Autres
+    type: object
+    properties:
+      type:
+        enum:
+          - ventilation_mecanique
+          - puit_climatique
+          - vmi
+          - vmr
+    required:
+      - type

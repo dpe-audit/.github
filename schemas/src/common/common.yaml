@@ -1,0 +1,43 @@
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Common Schema
+$defs:
+  scenario:
+    title: Scénario d'usage
+    type: string
+    enum: [conventionnel, depensier]
+  usage:
+    title: Usage
+    type: string
+    enum: [chauffage, ecs, refroidissement, eclairage, auxiliaire]
+  mois:
+    title: Mois
+    type: string
+    enum:
+      - "01"
+      - "02"
+      - "03"
+      - "04"
+      - "05"
+      - "06"
+      - "07"
+      - "08"
+      - "09"
+      - "10"
+      - "11"
+      - "12"
+  zone_climatique:
+    title: Zone climatique
+    type: string
+    enum: [H1a, H1b, H1c, H2a, H2b, H2c, H2d, H3]
+  energie:
+    title: Énergie
+    type: string
+    enum:
+      - electricite
+      - gaz_naturel
+      - gpl
+      - fioul
+      - bois
+      - charbon
+      - reseau_chaleur
+      - reseau_froid

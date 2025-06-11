@@ -1,0 +1,23 @@
+- id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+  description: Mur en brique pleine simple de 20 cm d'épaisseur avec doublage en laine de verre de 100 mm.
+  type_structure: brique_pleine_simple
+  epaisseur_structure: 200
+  type_doublage: materiaux_connu
+  presence_enduit_isolant: false
+  paroi_ancienne: false
+  inertie: lourde
+  annee_construction: 1970
+  annee_renovation: 2010
+  u0: 2.5
+  u: 0.3
+  position:
+    surface: 100
+    local_non_chauffe_id: 3fa85f64-5717-4562-b3fc-2c963f66afa6
+    mitoyennete: local_non_chauffe
+    orientation: 0
+  isolation:
+    etat_isolation: isole
+    type_isolation: ite
+    annee_isolation: 2010
+    epaisseur_isolation: 100
+    resistance_thermique_isolation: 4.0

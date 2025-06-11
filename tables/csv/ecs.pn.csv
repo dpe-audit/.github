@@ -1,0 +1,28 @@
+﻿type_chaudiere;pdim/gt;pdim/lte;annee_installation_generateur/gt;annee_installation_generateur/lte;pn;type_chaudiere_defaut
+chaudiere_murale;;5;;2005;18;chaudiere_sol
+chaudiere_murale;5;10;;2005;18;chaudiere_sol
+chaudiere_murale;10;13;;2005;18;chaudiere_sol
+chaudiere_murale;13;18;;2005;18;chaudiere_sol
+chaudiere_murale;18;24;;2005;24;chaudiere_sol
+chaudiere_murale;24;28;;2005;28;chaudiere_sol
+chaudiere_murale;28;32;;2005;32;chaudiere_sol
+chaudiere_murale;32;40;;2005;40;chaudiere_sol
+chaudiere_murale;40;;;2005;((Pdim / 5 ) + 1) * 5;chaudiere_sol
+chaudiere_murale;;5;2005;;5;chaudiere_murale
+chaudiere_murale;5;10;2005;;10;chaudiere_murale
+chaudiere_murale;10;13;2005;;13;chaudiere_murale
+chaudiere_murale;13;18;2005;;18;chaudiere_murale
+chaudiere_murale;18;24;2005;;24;chaudiere_murale
+chaudiere_murale;24;28;2005;;28;chaudiere_murale
+chaudiere_murale;28;32;2005;;32;chaudiere_murale
+chaudiere_murale;32;40;2005;;40;chaudiere_murale
+chaudiere_murale;40;;2005;;((Pdim / 5 ) + 1) * 5;chaudiere_murale
+chaudiere_sol;;5;;;18;chaudiere_sol
+chaudiere_sol;5;10;;;18;chaudiere_sol
+chaudiere_sol;10;13;;;18;chaudiere_sol
+chaudiere_sol;13;18;;;18;chaudiere_sol
+chaudiere_sol;18;24;;;24;chaudiere_sol
+chaudiere_sol;24;28;;;28;chaudiere_sol
+chaudiere_sol;28;32;;;32;chaudiere_sol
+chaudiere_sol;32;40;;;40;chaudiere_sol
+chaudiere_sol;40;;;;((Pdim / 5 ) + 1) * 5;chaudiere_sol

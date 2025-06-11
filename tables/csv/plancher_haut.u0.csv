@@ -1,0 +1,16 @@
+﻿type_plancher_haut;u0;tv_uph0_id
+inconnu;2.5;1
+plafond_avec_ou_sans_remplissage;1.45;2
+plafond_entre_solives_metalliques;1.45;3
+plafond_entre_solives_bois;1.2;4
+plafond_bois_sur_solives_metalliques;2.5;5
+plafond_bois_sous_solives_metalliques;2.5;6
+bardeaux_et_remplissage;1.2;7
+dalle_beton;2.5;8
+plafond_bois_sur_solives_bois;2;9
+plafond_bois_sous_solives_bois;2.3;10
+plafond_lourd;2.5;11
+combles_amenages_sous_rampant;2.5;12
+toiture_chaume;0.24;13
+plafond_patre;2.5;14
+bac_acier;2.5;12

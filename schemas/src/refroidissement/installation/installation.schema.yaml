@@ -1,0 +1,21 @@
+$id: https://schemas.dpe-audit.fr/refroidissement/installation
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Installation de refroidissement
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  surface:
+    title: Surface couverte par l'installation en m²
+    type: number
+    exclusiveMinimum: 0
+required:
+  - id
+  - description
+  - surface

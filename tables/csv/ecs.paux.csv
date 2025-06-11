@@ -1,0 +1,26 @@
+﻿type_generateur;energie_generateur;presence_ventouse;G;H;paux;pn_max
+accumulateur;;;0;0;0;
+chauffe_eau_instantane;;;0;0;0;
+chauffe_eau_vertical;;;0;0;0;
+chauffe_eau_horizontal;;;0;0;0;
+chaudiere;electricite;;0;0;0;
+chaudiere;fioul;;20;1.6;20 + 1.6 * Pn;400
+chaudiere;gaz_naturel;;20;1.6;20 + 1.6 * Pn;400
+chaudiere;gpl;;20;1.6;20 + 1.6 * Pn;400
+chaudiere;bois_buche;1;73.3;10.5;73.3 + 10.5 * Pn;70
+chaudiere;bois_granule;1;73.3;10.5;73.3 + 10.5 * Pn;70
+chaudiere;bois_plaquette;1;73.3;10.5;73.3 + 10.5 * Pn;70
+chaudiere;charbon;1;73.3;10.5;73.3 + 10.5 * Pn;70
+chaudiere;charbon;;0;0;0;
+chaudiere;bois_buche;;0;0;0;
+chaudiere;bois_granule;;0;0;0;
+chaudiere;bois_plaquette;;0;0;0;
+chaudiere_multi_batiment;;;0;0;0;
+cet_air_ambiant;;;0;0;0;
+cet_air_exterieur;;;0;0;0;
+cet_air_extrait;;;0;0;0;
+pac_double_service;;;0;0;0;
+pac_multi_batiment;;;0;0;0;
+poele_bouilleur;;1;73.3;10.5;73.3 + 10.5 * Pn;70
+poele_bouilleur;;;0;0;0;70
+reseau_chaleur;;;0;0;0;

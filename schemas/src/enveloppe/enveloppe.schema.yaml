@@ -1,0 +1,103 @@
+$id: https://schemas.dpe-audit.fr/enveloppe
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Enveloppe
+type: object
+unevaluatedProperties: false
+properties:
+  exposition:
+    title: Exposition
+    type: string
+    enum:
+      - exposition_simple
+      - exposition_multiple
+  q4pa_conv:
+    title: Perméabilité à l'air de l'enveloppe sous 4Pa connue et justifiée en m3/(h.m²)
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  presence_brasseurs_air:
+    title: Présence de brasseurs d'air
+    type: boolean
+    default: false
+  niveaux:
+    title: Liste des niveaux
+    type: array
+    minItems: 1
+    items:
+      $ref: "#/$defs/niveau"
+  locaux_non_chauffes:
+    title: Liste des locaux non chauffés
+    type: array
+    items:
+      $ref: /enveloppe/local_non_chauffe
+  murs:
+    title: Liste des murs
+    type: array
+    items:
+      $ref: /enveloppe/mur
+  planchers_bas:
+    title: Liste des planchers bas
+    type: array
+    items:
+      $ref: /enveloppe/plancher_bas
+  planchers_hauts:
+    title: Liste des planchers hauts
+    type: array
+    items:
+      $ref: /enveloppe/plancher_haut
+  baies:
+    title: Liste des baies
+    type: array
+    items:
+      $ref: /enveloppe/baie
+  portes:
+    title: Liste des portes
+    type: array
+    items:
+      $ref: /enveloppe/porte
+  ponts_thermiques:
+    title: Liste des ponts thermiques
+    type: array
+    items:
+      $ref: /enveloppe/pont_thermique
+required:
+  - exposition
+  - q4pa_conv
+  - presence_brasseurs_air
+  - niveaux
+  - locaux_non_chauffes
+  - murs
+  - planchers_bas
+  - planchers_hauts
+  - baies
+  - portes
+  - ponts_thermiques
+$defs:
+  inertie:
+    title: Inertie
+    type: string
+    enum:
+      - lourde
+      - legere
+  niveau:
+    title: Niveau
+    type: object
+    properties:
+      surface:
+        title: Surface en m²
+        type: number
+        minimumExclusive: 0
+      inertie_paroi_verticale:
+        title: Inertie des parois verticales
+        $ref: "#/$defs/inertie"
+      inertie_plancher_bas:
+        title: Inertie des planchers bas
+        $ref: "#/$defs/inertie"
+      inertie_plancher_haut:
+        title: Inertie des planchers hauts
+        $ref: "#/$defs/inertie"
+    required:
+      - surface
+      - inertie_paroi_verticale
+      - inertie_plancher_bas
+      - inertie_plancher_haut

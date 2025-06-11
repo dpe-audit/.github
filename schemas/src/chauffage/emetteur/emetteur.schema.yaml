@@ -1,0 +1,43 @@
+$id: https://schemas.dpe-audit.fr/chauffage/emetteur
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Émetteur de chaleur
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique de l'émetteur de chauffage au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description de l'émetteur de chauffage au format markdown
+    type: string
+  type:
+    title: Type d'émetteur de chauffage
+    type: string
+    enum:
+      - plancher_chauffant
+      - plafond_chauffant
+      - radiateur_monotube
+      - radiateur_bitube
+      - radiateur
+  temperature_distribution:
+    title: Température de distribution de l'émetteur de chaleur
+    type: string
+    enum:
+      - basse
+      - moyenne
+      - haute
+  presence_robinet_thermostatique:
+    title: Présence d'un robinet thermostatique
+    type: boolean
+  annee_installation:
+    title: Année d'installation de l'émetteur de chaleur
+    type: ["integer", "null"]
+    default: null
+required:
+  - id
+  - description
+  - type
+  - temperature_distribution
+  - presence_robinet_thermostatique
+  - annee_installation

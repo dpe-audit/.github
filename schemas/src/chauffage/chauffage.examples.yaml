@@ -1,0 +1,72 @@
+- generateurs:
+    - id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+      description: Pompe à chaleur hybride
+      type: pac_hybride_air_eau
+      energie: electricite
+      energie_partie_chaudiere: gaz_naturel
+      type_chaudiere: chaudiere_murale
+      mode_combustion: condensation
+      presence_ventouse: true
+      presence_regulation_combustion: true
+      pn: 15
+      pveilleuse: 120
+      qp0: 50
+      rpn: 90
+      rpint: 85
+      tfonc30: 70
+      tfonc100: 100
+      generateur_mixte_id: fbc4f0ac-7d7c-4464-adb3-5617b81896c2
+      position_volume_chauffe: false
+      generateur_collectif: true
+      generateur_multi_batiment: false
+      annee_installation: 2000
+      scop: 4.5
+    - id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+      description: Réseau de chaleur
+      type: reseau_chaleur
+      energie: reseau_chaleur
+      reseau_chaleur_id: reseau-chaleur
+      position_volume_chauffe: false
+      generateur_collectif: true
+      generateur_multi_batiment: true
+      annee_installation: 2000
+      generateur_mixte_id: null
+
+  emetteurs:
+    - id: 1e9098f0-5952-4c95-8608-291689103c29
+      description: Un émetteur de chaleur
+      type: radiateur_bitube
+      temperature_distribution: moyenne
+      presence_robinet_thermostatique: true
+      annee_installation: 2000
+
+  installations:
+    - id: 9d615f30-c6f8-406f-8a1f-899617c472db
+      description: Une installation de chauffage
+      surface: 100
+      comptage_individuel: true
+      solaire_thermique:
+        usage: chauffage
+        annee_installation: 2010
+        fch: 45
+      regulation_centrale:
+        presence_regulation: true
+        minimum_temperature: true
+        detection_presence: true
+      regulation_terminale:
+        presence_regulation: true
+        minimum_temperature: false
+        detection_presence: false
+
+  systemes:
+    - id: c7b1ea85-701b-4d01-b3b1-02aeb15964a4
+      installation_id: 9d615f30-c6f8-406f-8a1f-899617c472db
+      generateur_id: 6a785019-8ce1-4768-b9c3-400b7bd2f1f3
+      type: chauffage_central
+      reseau:
+        type_distribution: hydraulique
+        presence_circulateur_externe: false
+        niveaux_desservis: 2
+        isolation: non_isole
+      emetteurs:
+        - 1e9098f0-5952-4c95-8608-291689103c29

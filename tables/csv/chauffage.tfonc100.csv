@@ -1,0 +1,10 @@
+﻿temperature_distribution;annee_installation_emetteur/gte;annee_installation_emetteur/lte;tfonc100
+basse;;1980;60
+moyenne;;1980;80
+haute;;1980;80
+basse;1981;2000;35
+moyenne;1981;2000;70
+haute;1981;2000;70
+basse;2001;;35
+moyenne;2001;;60
+haute;2001;;70

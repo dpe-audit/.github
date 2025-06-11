@@ -1,0 +1,48 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/local_non_chauffe/paroi
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Paroi
+type: object
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  isolation:
+    title: État d'isolation de la paroi
+    type: ["string", "null"]
+    enum: [isole, non_isole, null]
+  position:
+    $ref: "#/$defs/position"
+required:
+  - id
+  - description
+  - isolation
+  - position
+$defs:
+  position:
+    title: Position
+    type: object
+    properties:
+      mitoyennete:
+        title: Mitoyenneté
+        type: string
+        enum:
+          - exterieur
+          - enterre
+          - vide_sanitaire
+          - terre_plein
+          - sous_sol_non_chauffe
+          - local_non_chauffe
+          - local_non_residentiel
+          - local_residentiel
+          - local_non_accessible
+      surface:
+        title: Surface de la paroi en m²
+        type: number
+        exclusiveMinimum: 0
+    required:
+      - mitoyennete
+      - surface

@@ -1,0 +1,87 @@
+$id: https://schemas.dpe-audit.fr/enveloppe/pont_thermique
+$schema: https://json-schema.org/draft/2020-12/schema
+title: Pont thermique
+type: object
+unevaluatedProperties: false
+properties:
+  id:
+    title: Identifiant unique au format UUID
+    type: string
+    format: uuid
+  description:
+    title: Description au format markdown
+    type: string
+  longueur:
+    title: Longueur du pont thermique en m
+    type: number
+    exclusiveMinimum: 0
+  kpt:
+    title: Valeur du pont thermique connue et justifiée
+    type: ["number", "null"]
+    exclusiveMinimum: 0
+    default: null
+  liaison:
+    $ref: "#/$defs/liaison"
+required:
+  - id
+  - description
+  - longueur
+  - kpt
+  - liaison
+$defs:
+  liaison:
+    title: Liaison
+    type: object
+    properties:
+      type_liaison:
+        title: Type de liaison
+        type: string
+        enum:
+          - plancher_bas_mur
+          - plancher_haut_mur
+          - refend_mur
+          - plancher_intermediaire_mur
+          - menuiserie_mur
+      mur_id:
+        title: Identifiant du mur associé au pont thermique au format UUID
+        type: string
+        format: uuid
+    required:
+      - type_liaison
+      - mur_id
+    anyOf:
+      - title: Pont thermique mur / plancher
+        type: object
+        properties:
+          type_liaison:
+            enum: [plancher_bas_mur, plancher_haut_mur]
+          plancher_id:
+            title: Identifiant du Plancher haut ou du Plancher bas associé au pont thermique
+            type: string
+            format: uuid
+        required:
+          - type_liaison
+          - plancher_id
+      - title: Pont thermique mur / menuiserie
+        type: object
+        properties:
+          type_liaison:
+            const: menuiserie_mur
+          ouverture_id:
+            title: Identifiant de la Baie ou de la Porte associée au pont thermique
+            type: string
+            format: uuid
+        required:
+          - type_liaison
+          - ouverture_id
+      - title: Pont thermique mur / refend ou plancher intermédiaire
+        type: object
+        properties:
+          type_liaison:
+            enum: [plancher_intermediaire_mur, refend_mur]
+          pont_thermique_partiel:
+            title: Pont thermique partiel
+            type: boolean
+        required:
+          - type_liaison
+          - pont_thermique_partiel
